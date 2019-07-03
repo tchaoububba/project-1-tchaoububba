@@ -22,6 +22,23 @@ public class Request implements Comparable<Request> {
 		this.employee = employee;
 	}
 	
+	public Request(Employee employee, String requestBody) {
+		this.employee = employee;
+		this.requestBody = requestBody;
+	}
+	
+	public Request(long requestId, Status status) {
+		this();
+		this.requestId = requestId;
+		this.status = status;
+	}
+	
+	public Request(long requestId, Employee employee, String requestBody) {
+		this.requestId = requestId;
+		this.employee = employee;
+		this.requestBody = requestBody;
+	}
+	
 	public Request(long requestId, Employee employee, String requestBody, Status status) {
 		this.requestId = requestId;
 		this.employee = employee;

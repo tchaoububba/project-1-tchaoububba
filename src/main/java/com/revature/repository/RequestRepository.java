@@ -34,5 +34,7 @@ public interface RequestRepository {
 	public List<Request> findByEmployeeId(long employeeId);
 	
 	public List<Request> findAll();
+	
+	public boolean update(Request request);
 
 }

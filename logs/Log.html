@@ -2317,3 +2317,1550 @@ Log session start time Wed Jun 26 10:54:38 EDT 2019<br>
 <td>ControllerService.java:83</td>
 <td title="Message">Getting connection with user parameters: TEST_USER, p4ssw0rd</td>
 </tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 02:36:47 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.revature.util.ConnectionUtil category">com.revature.util.ConnectionUtil</td>
+<td>ConnectionUtil.java:35</td>
+<td title="Message">Connection succesful</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 06:01:05 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:30</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1445</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:181</td>
+<td title="Message">Could not find all employees.</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:776)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.repository.EmployeeRepositoryJdbc.findAll(EmployeeRepositoryJdbc.java:157)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.Service.login(Service.java:69)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.Service.main(Service.java:272)
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 06:03:42 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:30</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>931</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:181</td>
+<td title="Message">Could not find all employees.</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:776)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.repository.EmployeeRepositoryJdbc.findAll(EmployeeRepositoryJdbc.java:157)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.Service.login(Service.java:69)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.Service.main(Service.java:272)
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 06:05:58 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.revature.util.ConnectionUtil category">com.revature.util.ConnectionUtil</td>
+<td>ConnectionUtil.java:35</td>
+<td title="Message">Connection successful</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 06:06:15 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:30</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>2348</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:76</td>
+<td title="Message">Employee not found.</td>
+</tr>
+
+<tr>
+<td>2352</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>2352</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>3432</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:76</td>
+<td title="Message">Employee not found.</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 06:13:09 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 06:16:15 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 06:20:00 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 06:20:49 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:30</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1093</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:72</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>1095</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>1096</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1267</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:72</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>1271</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:124</td>
+<td title="Message">Submitting request parameters employee ID: 1, request body: This is a test submission</td>
+</tr>
+
+<tr>
+<td>1271</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.RequestRepositoryJdbc category">com.revature.repository.RequestRepositoryJdbc</td>
+<td>RequestRepositoryJdbc.java:31</td>
+<td title="Message">Entering create method with parameter: Request [requestId=0, employee=Employee [employeeId=1, firstName=Test, lastName=Employee, username=TestE, password=password, title=Title [titleId=1, titleName=EMPLOYEE]], requestBody=This is a test submission, status=null]</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 06:22:32 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:30</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestM, p4ssw0rd</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1137</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:72</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>1138</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestM, p4ssw0rd</td>
+</tr>
+
+<tr>
+<td>1139</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1402</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:72</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>1406</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:124</td>
+<td title="Message">Submitting request parameters employee ID: 2, request body: This is a test submission</td>
+</tr>
+
+<tr>
+<td>1406</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.RequestRepositoryJdbc category">com.revature.repository.RequestRepositoryJdbc</td>
+<td>RequestRepositoryJdbc.java:31</td>
+<td title="Message">Entering create method with parameter: Request [requestId=0, employee=Employee [employeeId=2, firstName=Test, lastName=Manager, username=TestM, password=p4ssw0rd, title=Title [titleId=2, titleName=MANAGER]], requestBody=This is a test submission, status=null]</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 12:33:48 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:30</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestM, p4ssw0rd</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1706</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:72</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>1708</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:145</td>
+<td title="Message">Calling request with parameter employee ID: 2</td>
+</tr>
+
+<tr>
+<td>1709</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.RequestRepositoryJdbc category">com.revature.repository.RequestRepositoryJdbc</td>
+<td>RequestRepositoryJdbc.java:95</td>
+<td title="Message">Entering find request by employee ID method with parameter: 2</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 12:36:01 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:30</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestE, p4ssw0rd</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1528</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:76</td>
+<td title="Message">Employee not found.</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 12:44:58 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:30</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>892</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:72</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>893</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:145</td>
+<td title="Message">Calling request with parameter employee ID: 1</td>
+</tr>
+
+<tr>
+<td>894</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.RequestRepositoryJdbc category">com.revature.repository.RequestRepositoryJdbc</td>
+<td>RequestRepositoryJdbc.java:95</td>
+<td title="Message">Entering find request by employee ID method with parameter: 1</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Jul 02 13:00:03 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:30</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:67</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1892</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:72</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>1893</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:64</td>
+<td title="Message">Entering find employee by employee ID method with parameter: 1</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 03 04:33:41 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:19</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:56</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1191</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:61</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>1195</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:150</td>
+<td title="Message">Viewing employee info with parameter mployee ID: 1</td>
+</tr>
+
+<tr>
+<td>1196</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:64</td>
+<td title="Message">Entering find employee by employee ID method with parameter: 1</td>
+</tr>
+
+<tr>
+<td>1636</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:163</td>
+<td title="Message">Updating employee info with parameter employee object: Employee [employeeId=1, firstName=Changed, lastName=Employee, username=Changed, password=password, title=Title [titleId=1, titleName=EMPLOYEE]]</td>
+</tr>
+
+<tr>
+<td>1636</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:187</td>
+<td title="Message">Entering update employee method</td>
+</tr>
+
+<tr>
+<td>1864</td>
+<td title="main thread">main</td>
+<td title="Level"><font color="#993300"><strong>ERROR</strong></font></td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:205</td>
+<td title="Message">Could not update employee.</td>
+</tr>
+<tr><td bgcolor="#993300" style="color:White; font-size : xx-small;" colspan="6">java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.repository.EmployeeRepositoryJdbc.update(EmployeeRepositoryJdbc.java:201)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.Service.updateInfo(Service.java:165)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;	at com.revature.service.Service.main(Service.java:174)
+</td></tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 03 04:34:52 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:19</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:56</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>12</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1050</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:61</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>1051</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:150</td>
+<td title="Message">Viewing employee info with parameter mployee ID: 1</td>
+</tr>
+
+<tr>
+<td>1051</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:64</td>
+<td title="Message">Entering find employee by employee ID method with parameter: 1</td>
+</tr>
+
+<tr>
+<td>1210</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:163</td>
+<td title="Message">Updating employee info with parameter employee object: Employee [employeeId=1, firstName=Changed, lastName=Employee, username=Changed, password=password, title=Title [titleId=1, titleName=EMPLOYEE]]</td>
+</tr>
+
+<tr>
+<td>1210</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:187</td>
+<td title="Message">Entering update employee method</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 03 04:38:24 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:19</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:56</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>1051</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:65</td>
+<td title="Message">Employee not found.</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 03 04:39:25 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:19</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:56</td>
+<td title="Message">Searching for employee with login parameters: Changed, password</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>936</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:61</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>940</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:150</td>
+<td title="Message">Viewing employee info with parameter employee ID: 1</td>
+</tr>
+
+<tr>
+<td>940</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:64</td>
+<td title="Message">Entering find employee by employee ID method with parameter: 1</td>
+</tr>
+
+<tr>
+<td>1132</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:163</td>
+<td title="Message">Updating employee info with parameter employee object: Employee [employeeId=1, firstName=Test, lastName=Employee, username=TestE, password=password, title=Title [titleId=1, titleName=EMPLOYEE]]</td>
+</tr>
+
+<tr>
+<td>1132</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:187</td>
+<td title="Message">Entering update employee method</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 03 05:07:02 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:19</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 03 05:12:45 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:20</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:156</td>
+<td title="Message">Updating request info with parameter request object: Request [requestId=3, employee=null, requestBody=, status=Status [statusId=2, statusName=null]]</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.RequestRepositoryJdbc category">com.revature.repository.RequestRepositoryJdbc</td>
+<td>RequestRepositoryJdbc.java:174</td>
+<td title="Message">Entering update request method</td>
+</tr>
+
+<tr>
+<td>1102</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.revature.repository.RequestRepositoryJdbc category">com.revature.repository.RequestRepositoryJdbc</td>
+<td>RequestRepositoryJdbc.java:186</td>
+<td title="Message">Update successful!</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 03 05:17:06 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 03 05:17:27 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:20</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:156</td>
+<td title="Message">Updating request info with parameter request object: Request [requestId=3, employee=null, requestBody=, status=Status [statusId=2, statusName=APPROVED]]</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.RequestRepositoryJdbc category">com.revature.repository.RequestRepositoryJdbc</td>
+<td>RequestRepositoryJdbc.java:174</td>
+<td title="Message">Entering update request method</td>
+</tr>
+
+<tr>
+<td>1083</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="com.revature.repository.RequestRepositoryJdbc category">com.revature.repository.RequestRepositoryJdbc</td>
+<td>RequestRepositoryJdbc.java:186</td>
+<td title="Message">Update successful!</td>
+</tr>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Test Log HTML</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Wed Jul 03 05:29:01 EDT 2019<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:20</td>
+<td title="Message">Instantiation of Service class has been restricted.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:57</td>
+<td title="Message">Searching for employee with login parameters: TestE, password</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.EmployeeRepositoryJdbc category">com.revature.repository.EmployeeRepositoryJdbc</td>
+<td>EmployeeRepositoryJdbc.java:150</td>
+<td title="Message">Entering finding all employees</td>
+</tr>
+
+<tr>
+<td>994</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:62</td>
+<td title="Message">Employee found.</td>
+</tr>
+
+<tr>
+<td>997</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.service.Service category">com.revature.service.Service</td>
+<td>Service.java:155</td>
+<td title="Message">Calling all requests.</td>
+</tr>
+
+<tr>
+<td>997</td>
+<td title="main thread">main</td>
+<td title="Level">TRACE</td>
+<td title="com.revature.repository.RequestRepositoryJdbc category">com.revature.repository.RequestRepositoryJdbc</td>
+<td>RequestRepositoryJdbc.java:136</td>
+<td title="Message">Entering finding all requests</td>
+</tr>

@@ -670,3 +670,163 @@ java.sql.SQLException: ORA-01017: invalid username/password; logon denied
 	at com.revature.Main.main(Main.java:17)
 2019-06-26 10:55:02 TRACE ControllerService:48 - Entering login method with parameters: TEST_USER, p4ssw0rd
 2019-06-26 10:55:07 TRACE ControllerService:83 - Getting connection with user parameters: TEST_USER, p4ssw0rd
+2019-07-02 02:36:48 INFO  ConnectionUtil:35 - Connection succesful
+2019-07-02 06:01:05 TRACE Service:30 - Instantiation of Service class has been restricted.
+2019-07-02 06:01:05 TRACE Service:67 - Searching for employee with login parameters: TestE, password
+2019-07-02 06:01:05 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:01:06 ERROR EmployeeRepositoryJdbc:181 - Could not find all employees.
+java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:776)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+	at com.revature.repository.EmployeeRepositoryJdbc.findAll(EmployeeRepositoryJdbc.java:157)
+	at com.revature.service.Service.login(Service.java:69)
+	at com.revature.service.Service.main(Service.java:272)
+2019-07-02 06:03:42 TRACE Service:30 - Instantiation of Service class has been restricted.
+2019-07-02 06:03:42 TRACE Service:67 - Searching for employee with login parameters: TestE, password
+2019-07-02 06:03:42 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:03:43 ERROR EmployeeRepositoryJdbc:181 - Could not find all employees.
+java.sql.SQLSyntaxErrorException: ORA-00942: table or view does not exist
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:776)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:897)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1034)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3867)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1502)
+	at com.revature.repository.EmployeeRepositoryJdbc.findAll(EmployeeRepositoryJdbc.java:157)
+	at com.revature.service.Service.login(Service.java:69)
+	at com.revature.service.Service.main(Service.java:272)
+2019-07-02 06:06:00 INFO  ConnectionUtil:35 - Connection successful
+2019-07-02 06:06:15 TRACE Service:30 - Instantiation of Service class has been restricted.
+2019-07-02 06:06:15 TRACE Service:67 - Searching for employee with login parameters: TestE, password
+2019-07-02 06:06:15 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:06:17 TRACE Service:76 - Employee not found.
+2019-07-02 06:06:17 TRACE Service:67 - Searching for employee with login parameters: TestE, password
+2019-07-02 06:06:17 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:06:18 TRACE Service:76 - Employee not found.
+2019-07-02 06:13:10 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:17:23 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:20:00 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:20:49 TRACE Service:30 - Instantiation of Service class has been restricted.
+2019-07-02 06:20:49 TRACE Service:67 - Searching for employee with login parameters: TestE, password
+2019-07-02 06:20:49 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:20:50 TRACE Service:72 - Employee found.
+2019-07-02 06:20:50 TRACE Service:67 - Searching for employee with login parameters: TestE, password
+2019-07-02 06:20:50 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:20:51 TRACE Service:72 - Employee found.
+2019-07-02 06:20:51 INFO  Service:124 - Submitting request parameters employee ID: 1, request body: This is a test submission
+2019-07-02 06:20:51 TRACE RequestRepositoryJdbc:31 - Entering create method with parameter: Request [requestId=0, employee=Employee [employeeId=1, firstName=Test, lastName=Employee, username=TestE, password=password, title=Title [titleId=1, titleName=EMPLOYEE]], requestBody=This is a test submission, status=null]
+2019-07-02 06:22:32 TRACE Service:30 - Instantiation of Service class has been restricted.
+2019-07-02 06:22:32 TRACE Service:67 - Searching for employee with login parameters: TestM, p4ssw0rd
+2019-07-02 06:22:32 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:22:33 TRACE Service:72 - Employee found.
+2019-07-02 06:22:33 TRACE Service:67 - Searching for employee with login parameters: TestM, p4ssw0rd
+2019-07-02 06:22:33 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 06:22:33 TRACE Service:72 - Employee found.
+2019-07-02 06:22:33 INFO  Service:124 - Submitting request parameters employee ID: 2, request body: This is a test submission
+2019-07-02 06:22:33 TRACE RequestRepositoryJdbc:31 - Entering create method with parameter: Request [requestId=0, employee=Employee [employeeId=2, firstName=Test, lastName=Manager, username=TestM, password=p4ssw0rd, title=Title [titleId=2, titleName=MANAGER]], requestBody=This is a test submission, status=null]
+2019-07-02 12:33:48 TRACE Service:30 - Instantiation of Service class has been restricted.
+2019-07-02 12:33:48 TRACE Service:67 - Searching for employee with login parameters: TestM, p4ssw0rd
+2019-07-02 12:33:48 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 12:33:50 TRACE Service:72 - Employee found.
+2019-07-02 12:33:50 TRACE Service:145 - Calling request with parameter employee ID: 2
+2019-07-02 12:33:50 TRACE RequestRepositoryJdbc:95 - Entering find request by employee ID method with parameter: 2
+2019-07-02 12:36:01 TRACE Service:30 - Instantiation of Service class has been restricted.
+2019-07-02 12:36:01 TRACE Service:67 - Searching for employee with login parameters: TestE, p4ssw0rd
+2019-07-02 12:36:01 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 12:36:03 TRACE Service:76 - Employee not found.
+2019-07-02 12:44:58 TRACE Service:30 - Instantiation of Service class has been restricted.
+2019-07-02 12:44:58 TRACE Service:67 - Searching for employee with login parameters: TestE, password
+2019-07-02 12:44:58 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 12:44:59 TRACE Service:72 - Employee found.
+2019-07-02 12:44:59 TRACE Service:145 - Calling request with parameter employee ID: 1
+2019-07-02 12:44:59 TRACE RequestRepositoryJdbc:95 - Entering find request by employee ID method with parameter: 1
+2019-07-02 13:00:03 TRACE Service:30 - Instantiation of Service class has been restricted.
+2019-07-02 13:00:03 TRACE Service:67 - Searching for employee with login parameters: TestE, password
+2019-07-02 13:00:03 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-02 13:00:05 TRACE Service:72 - Employee found.
+2019-07-02 13:00:05 TRACE EmployeeRepositoryJdbc:64 - Entering find employee by employee ID method with parameter: 1
+2019-07-03 04:33:41 TRACE Service:19 - Instantiation of Service class has been restricted.
+2019-07-03 04:33:41 TRACE Service:56 - Searching for employee with login parameters: TestE, password
+2019-07-03 04:33:41 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-03 04:33:43 TRACE Service:61 - Employee found.
+2019-07-03 04:33:43 TRACE Service:150 - Viewing employee info with parameter mployee ID: 1
+2019-07-03 04:33:43 TRACE EmployeeRepositoryJdbc:64 - Entering find employee by employee ID method with parameter: 1
+2019-07-03 04:33:43 TRACE Service:163 - Updating employee info with parameter employee object: Employee [employeeId=1, firstName=Changed, lastName=Employee, username=Changed, password=password, title=Title [titleId=1, titleName=EMPLOYEE]]
+2019-07-03 04:33:43 TRACE EmployeeRepositoryJdbc:187 - Entering update employee method
+2019-07-03 04:33:43 ERROR EmployeeRepositoryJdbc:205 - Could not update employee.
+java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.EmployeeRepositoryJdbc.update(EmployeeRepositoryJdbc.java:201)
+	at com.revature.service.Service.updateInfo(Service.java:165)
+	at com.revature.service.Service.main(Service.java:174)
+2019-07-03 04:34:52 TRACE Service:19 - Instantiation of Service class has been restricted.
+2019-07-03 04:34:52 TRACE Service:56 - Searching for employee with login parameters: TestE, password
+2019-07-03 04:34:52 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-03 04:34:53 TRACE Service:61 - Employee found.
+2019-07-03 04:34:53 TRACE Service:150 - Viewing employee info with parameter mployee ID: 1
+2019-07-03 04:34:53 TRACE EmployeeRepositoryJdbc:64 - Entering find employee by employee ID method with parameter: 1
+2019-07-03 04:34:54 TRACE Service:163 - Updating employee info with parameter employee object: Employee [employeeId=1, firstName=Changed, lastName=Employee, username=Changed, password=password, title=Title [titleId=1, titleName=EMPLOYEE]]
+2019-07-03 04:34:54 TRACE EmployeeRepositoryJdbc:187 - Entering update employee method
+2019-07-03 04:38:24 TRACE Service:19 - Instantiation of Service class has been restricted.
+2019-07-03 04:38:24 TRACE Service:56 - Searching for employee with login parameters: TestE, password
+2019-07-03 04:38:24 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-03 04:38:25 TRACE Service:65 - Employee not found.
+2019-07-03 04:39:25 TRACE Service:19 - Instantiation of Service class has been restricted.
+2019-07-03 04:39:25 TRACE Service:56 - Searching for employee with login parameters: Changed, password
+2019-07-03 04:39:25 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-03 04:39:26 TRACE Service:61 - Employee found.
+2019-07-03 04:39:26 TRACE Service:150 - Viewing employee info with parameter employee ID: 1
+2019-07-03 04:39:26 TRACE EmployeeRepositoryJdbc:64 - Entering find employee by employee ID method with parameter: 1
+2019-07-03 04:39:26 TRACE Service:163 - Updating employee info with parameter employee object: Employee [employeeId=1, firstName=Test, lastName=Employee, username=TestE, password=password, title=Title [titleId=1, titleName=EMPLOYEE]]
+2019-07-03 04:39:26 TRACE EmployeeRepositoryJdbc:187 - Entering update employee method
+2019-07-03 05:07:02 TRACE Service:19 - Instantiation of Service class has been restricted.
+2019-07-03 05:12:45 TRACE Service:20 - Instantiation of Service class has been restricted.
+2019-07-03 05:12:45 TRACE Service:156 - Updating request info with parameter request object: Request [requestId=3, employee=null, requestBody=, status=Status [statusId=2, statusName=null]]
+2019-07-03 05:12:45 TRACE RequestRepositoryJdbc:174 - Entering update request method
+2019-07-03 05:12:46 INFO  RequestRepositoryJdbc:186 - Update successful!
+2019-07-03 05:17:06 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-03 05:17:27 TRACE Service:20 - Instantiation of Service class has been restricted.
+2019-07-03 05:17:27 TRACE Service:156 - Updating request info with parameter request object: Request [requestId=3, employee=null, requestBody=, status=Status [statusId=2, statusName=APPROVED]]
+2019-07-03 05:17:27 TRACE RequestRepositoryJdbc:174 - Entering update request method
+2019-07-03 05:17:28 INFO  RequestRepositoryJdbc:186 - Update successful!
+2019-07-03 05:29:01 TRACE Service:20 - Instantiation of Service class has been restricted.
+2019-07-03 05:29:01 TRACE Service:57 - Searching for employee with login parameters: TestE, password
+2019-07-03 05:29:01 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-03 05:29:02 TRACE Service:62 - Employee found.
+2019-07-03 05:29:02 TRACE Service:155 - Calling all requests.
+2019-07-03 05:29:02 TRACE RequestRepositoryJdbc:136 - Entering finding all requests

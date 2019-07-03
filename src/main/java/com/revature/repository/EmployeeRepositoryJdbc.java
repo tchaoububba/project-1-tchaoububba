@@ -8,7 +8,7 @@ package com.revature.repository;
 //--LAST_NAME  NOT NULL VARCHAR2(100) 
 //--USERNAME   NOT NULL VARCHAR2(100) 
 //--PASSWORD   NOT NULL VARCHAR2(100) 
-//--TITLE      NOT NULL VARCHAR2(100)
+//--T_ID       NOT NULL NUMBER
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,13 +27,14 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 	
 	private static final Logger LOGGER = Logger.getLogger(EmployeeRepositoryJdbc.class);
 
+	//We'll make it so only managers can use this method to register employees.
 	@Override
 	public boolean create(Employee employee) {
 		LOGGER.trace("Entering create method with parameter: " + employee);
 		//This is try-with-resources, so we don't need a finally block
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
-			String sql = "INSERT INTO EMPLOYEE VALUES (?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO employee VALUES (?, ?, ?, ?, ?, ?)";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setLong(++parameterIndex, employee.getEmployeeId());
@@ -64,7 +65,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM EMPLOYEE WHERE E_ID = ?";
+			String sql = "SELECT * FROM employee WHERE E_ID = ?";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setLong(++parameterIndex, employeeId);
@@ -99,7 +100,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM EMPLOYEE WHERE LAST_NAME = ?";
+			String sql = "SELECT * FROM employee WHERE LAST_NAME = ?";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(++parameterIndex, lastName);
@@ -149,7 +150,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		LOGGER.trace("Entering finding all employees");
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM EMPLOYEE";
+			String sql = "SELECT * FROM employee";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
@@ -180,5 +181,38 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 			LOGGER.error("Could not find all employees.", e);
 		}
 		return null;
+	}
+	
+	@Override
+	public boolean update(Employee employee) {
+		LOGGER.trace("Entering update employee method");
+		try(Connection connection = ConnectionUtil.getConnection()) {
+			int parameterIndex = 0;
+			//* could be "AS [DESIRED_NAME]
+			String sql = "UPDATE employee SET FIRST_NAME = ?, LAST_NAME = ?, USERNAME = ?, PASSWORD = ? WHERE E_ID = ?";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setString(++parameterIndex, employee.getFirstName());
+			statement.setString(++parameterIndex, employee.getLastName());
+			statement.setString(++parameterIndex, employee.getUsername());
+			statement.setString(++parameterIndex, employee.getPassword());
+			statement.setLong(++parameterIndex, employee.getEmployeeId());
+			
+			if (statement.executeUpdate() > 0) {
+				LOGGER.info("Update successful!");
+				return true;
+			}
+		} catch (SQLException e) {
+			LOGGER.error("Could not update employee.", e);
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) {
+		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
+		List<Employee> employees = new ArrayList<>();
+		employees = repository.findAll();
+		System.out.println(employees);
 	}
 }

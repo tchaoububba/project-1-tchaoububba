@@ -1,18 +1,14 @@
 package com.revature.service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.log4j.Logger;
 
-import com.revature.exception.BalanceTooSmallException;
-import com.revature.exception.WrongUsernameOrPasswordException;
 import com.revature.model.Employee;
-import com.revature.util.ConnectionUtil;
+import com.revature.model.Request;
+import com.revature.model.Status;
+import com.revature.repository.EmployeeRepositoryJdbc;
+import com.revature.repository.RequestRepositoryJdbc;
 
 public final class Service {
 
@@ -31,227 +27,187 @@ public final class Service {
 		return instance;
 	}
 
-	public void login(Employee user, Scanner scanner) {
-//		Check if user is already logged in
-		if (user.isLoginStatus()) {
-			System.out.println(
-					"You are already logged in.  Please logout if you are attempting to login as someone else.");
-		} else {
-//			Code to log in here
-			System.out.println("Please enter your username.");
-			String username = scanner.nextLine();
-			System.out.println("Please enter your password.");
-			String password = scanner.nextLine();
-			user.setUsername(username);
-			user.setPassword(password);
-//			Insert scanned username + password into ConnectionDriver info.
-			LOGGER.trace("Entering login method with parameters: " + username + ", " + password);
-			try (Connection connection = ConnectionUtil.getConnection(username, password)) {
-				if (connection.isValid(0)) {
-					user.setLoginStatus(true);
-				} else {
-					user.setLoginStatus(false);
-				}
-			} catch (SQLException e) {
-				LOGGER.error("Could not login.", e);
-			}
-			if (user.isLoginStatus()) {
-				System.out.println("Welcome " + user.getUsername() + "!");
-			} else {
-				try {
-					throw new WrongUsernameOrPasswordException();
-				} catch (WrongUsernameOrPasswordException e) {
-					System.out.println("Wrong username and/or password was given. Please try again.");
-				}
+	/**
+	 * We're going to take the entered username and password parameters, passed in
+	 * through the Employee object, and then return some kind of validation that the
+	 * login was successful or not. I'm currently undecided between passing back a
+	 * boolean and an Employee object (null if unsuccessful).
+	 * 
+	 * @param employee
+	 */
+	public Employee login(Employee employee) {
+////		Check if user is already logged in
+//		if (employee.isLoginStatus()) {
+//			System.out.println(
+//					"You are already logged in.  Please logout if you are attempting to login as someone else.");
+//		} else {
+
+//		System.out.println("Please enter your username.");
+//		String username = scanner.nextLine();
+//		System.out.println("Please enter your password.");
+//		String password = scanner.nextLine();
+//		employee.setUsername(username);
+//		employee.setPassword(password);
+////		Insert scanned username + password into ConnectionDriver info.
+
+//		Code to log in here
+		String username = employee.getUsername();
+		String password = employee.getPassword();
+		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
+		LOGGER.trace("Searching for employee with login parameters: " + username + ", " + password);
+		List<Employee> employees = new ArrayList<>();
+		employees = repository.findAll();
+		for (Employee model : employees) {
+			if (model.getUsername().equals(username) && model.getPassword().equals(password)) {
+				LOGGER.trace("Employee found.");
+				return model;
 			}
 		}
+		LOGGER.trace("Employee not found.");
+		return null;
+//		if (employee.isLoginStatus()) {
+//			System.out.println("Welcome " + employee.getUsername() + "!");
+//		} else {
+//			try {
+//				throw new WrongUsernameOrPasswordException();
+//			} catch (WrongUsernameOrPasswordException e) {
+//				System.out.println("Wrong username and/or password was given. Please try again.");
+//			}
+//		}
 	}
 
-	public void logout(Employee user) {
+	// This should probably go in a servlet that will respond to the title field of
+	// the Employee object and will show the appropriate home page
+	public boolean viewHome(Employee employee) {
+		return false;
+	}
+
+	// This should probably go in a servlet that will end the current session and
+	// bring client to home
+	public boolean logout(Employee employee) {
 //		Code to log out here
-		if (user.isLoginStatus()) {
-			user.setLoginStatus(false);
-			System.out.println("You have successfully logged out!");
-		} else {
-			System.out.println("You are not logged in.");
-		}
+//		if (employee.isLoginStatus()) {
+//			employee.setLoginStatus(false);
+//			System.out.println("You have successfully logged out!");
+//		} else {
+//			System.out.println("You are not logged in.");
+//		}
+		return false;
 	}
 
-	public void viewBalance(Employee user) {
-//		Code to print out the balance here
-		if (user.isLoginStatus()) {
-			LOGGER.trace("Getting connection with user parameters: " + user.getUsername() + ", " + user.getPassword());
-			try (Connection connection = ConnectionUtil.getConnection(user.getUsername(), user.getPassword())) {
-				String sql = "SELECT * FROM BANK_ACCOUNT";
+	/**
+	 * This method will only be accessible if the user is logged in (handled up the
+	 * app chain in a servlet probably). We're going to take the passed in Request
+	 * object and pass it straight to the create method in the RequestRepository
+	 * object. Then we'll return some kind of validation that the submission was
+	 * successful or not. I'm currently undecided between passing back a boolean and
+	 * a Request object with a 'Pending' status ID (null if unsuccessful). I may
+	 * have to take in an Employee object as well, but not sure. I may be able to
+	 * simply put the Employee object into the Request object further up the chain.
+	 * 
+	 * @param request
+	 */
+	public boolean submitRequest(Request request) {
+//		if (employee.isLoginStatus()) {
 
-				PreparedStatement statement = connection.prepareStatement(sql);
-
-				ResultSet result = statement.executeQuery();
-
-				if (result.next()) {
-					double balance = result.getDouble("BALANCE");
-					user.setBalance(balance);
-					System.out.println("Your balance is $" + user.getBalance());
-				}
-			} catch (SQLException e) {
-				LOGGER.error("Could not find balance.", e);
-			}
-		} else {
-			System.out.println("You are not logged in. You must login before you may view or update your balance.");
+		RequestRepositoryJdbc repository = new RequestRepositoryJdbc();
+		LOGGER.trace("Submitting request with parameters employee ID: " + request.getEmployee().getEmployeeId()
+				+ ", request body: " + request.getRequestBody());
+		if (repository.create(request)) {
+			return true;
 		}
+		LOGGER.trace("Could not submit request.");
+		return false;
 	}
 
-//	Look for a way to check the money for no more than 2 decimal places if we have time.
-	public void depositMoney(Employee user, Scanner scanner) {
-//		Code to deposit money here
-		double depositAmount = 0;
-		if (user.isLoginStatus()) {
-			viewBalance(user);
-			System.out.println("How much money would you like to deposit?");
-			try {
-				depositAmount = scanner.nextDouble();
-			} catch (InputMismatchException e) {
-				System.out.println("A valid number was not received. Please enter your deposit amount as a number.");
+//	For now, we're going to lump pending requests with resolved ones.
+	/**
+	 * This method will only be accessible if the user is logged in. Thus, the
+	 * passed in object should have the whole Employee object filled out. We'll use
+	 * the filled in ID field to get any requests belonging to that Employee.
+	 * 
+	 * @param employee
+	 */
+	public List<Request> employeeViewRequest(Employee employee) {
+		RequestRepositoryJdbc repository = new RequestRepositoryJdbc();
+		List<Request> requests = new ArrayList<>();
+		List<Request> desiredRequests = new ArrayList<>();
+		LOGGER.trace(
+				"Calling request with parameter employee ID: " + employee.getEmployeeId());
+		requests = repository.findByEmployeeId(employee.getEmployeeId());
+		for (Request request: requests) {
+			if (request.getEmployee().getEmployeeId()==employee.getEmployeeId()) {
+				desiredRequests.add(request);
 			}
-			if (depositAmount >= 0) {
-				LOGGER.trace("Entering deposit method with parameters: balance = " + user.getBalance() + ", deposit = " + depositAmount);
-				user.setBalance((user.getBalance() + depositAmount));
-				LOGGER.trace("Getting connection with user parameters: " + user.getUsername() + ", " + user.getPassword());
-				try (Connection connection = ConnectionUtil.getConnection(user.getUsername(), user.getPassword())) {
-					String sql = "UPDATE bank_account SET BALANCE = ?";
-
-					PreparedStatement statement = connection.prepareStatement(sql);
-					LOGGER.info("Amount to be updated to: " + user.getBalance());
-					statement.setDouble(1, user.getBalance());
-					statement.executeUpdate();
-
-				} catch (SQLException e) {
-					LOGGER.error("Could not set balance.", e);
-					System.out.println("There was an error in depositing your money.");
-					return;
-				}
-
-				System.out.println("You have deposited $" + depositAmount + ".");
-				viewBalance(user);
-				scanner.nextLine();
-			} else {
-				depositAmount = 0;
-				try {
-					throw new IllegalArgumentException();
-				} catch (IllegalArgumentException e) {
-					System.out.println("A valid number was not received.  You must enter a positive amount to deposit.");
-					scanner.nextLine();
-				}
-			}
-		} else {
-			System.out.println("You are not logged in. You must login before you may view or update your balance.");
 		}
-	}
-
-//	Look for a way to check the money for no more than 2 decimal places if we have time.
-	public void withdrawMoney(Employee user, Scanner scanner) {
-//		Code to withdraw money here
-		double withdrawAmount = 0;
-		if (user.isLoginStatus()) {
-			viewBalance(user);
-			System.out.println("How much money would you like to withdraw?");
-			try {
-				withdrawAmount = scanner.nextDouble();
-			} catch (InputMismatchException e) {
-				System.out.println("A valid number was not received. Please enter your deposit amount as a number.");
-			}
-			if (withdrawAmount >= 0 && withdrawAmount <= user.getBalance()) {
-				LOGGER.trace("Entering withdraw method with parameters: balance = " + user.getBalance() + ", withdraw = " + withdrawAmount);
-				user.setBalance((user.getBalance() - withdrawAmount));
-				LOGGER.trace("Getting connection with user parameters: " + user.getUsername() + ", " + user.getPassword());
-				try (Connection connection = ConnectionUtil.getConnection(user.getUsername(), user.getPassword())) {
-					String sql = "UPDATE bank_account SET BALANCE = ?";
-
-					PreparedStatement statement = connection.prepareStatement(sql);
-					LOGGER.info("Amount to be updated to: " + user.getBalance());
-					statement.setDouble(1, user.getBalance());
-					statement.executeUpdate();
-
-				} catch (SQLException e) {
-					LOGGER.error("Could not set balance.", e);
-					System.out.println("There was an error in withdrawing your money.");
-					return;
-				}
-
-				System.out.println("You have withdrawn $" + withdrawAmount + ".");
-				viewBalance(user);
-				scanner.nextLine();
-			} else if (withdrawAmount < 0) {
-				withdrawAmount = 0;
-				try {
-					throw new IllegalArgumentException();
-				} catch (IllegalArgumentException e) {
-					System.out.println("A valid number was not received.  You must enter a positive amount to withdraw.");
-					scanner.nextLine();
-				}
-			} else {
-				withdrawAmount = 0;
-				try {
-					throw new BalanceTooSmallException();
-				} catch (BalanceTooSmallException e) {
-					System.out.println("You cannot withdraw an amount larger than your available balance.");
-					scanner.nextLine();
-				}
-			}
-		} else {
-			System.out.println("You are not logged in. You must login before you may view or update your balance.");
-		}
+		return desiredRequests;
 	}
 	
-	public void register(Scanner scanner) {
-		LOGGER.trace("Entering register method");
-		String username;
-		String password, passwordCheck;
-		System.out.println("Please enter your desired username.");
-		username = scanner.nextLine();
-		if (username.length() <= 10) {
-			System.out.println("Please enter your desired password.");
-			password = scanner.nextLine();
-			System.out.println("Please re-enter your desired password.");
-			passwordCheck = scanner.nextLine();
-			if (password.equals(passwordCheck)) {
-				LOGGER.trace("Getting connection with admin parameters");
-				try (Connection connection = ConnectionUtil.getConnection()) {
-					String sql = "CREATE USER " + username + " IDENTIFIED BY " + password;
-					PreparedStatement statement = connection.prepareStatement(sql);
-					LOGGER.info("Creating user account with parameters: " + username + ", " + password);
-					statement.executeUpdate();
-//					Granting admin options
-					String sql2 = "GRANT DBA TO " + username + " WITH ADMIN OPTION";
-					PreparedStatement statement2 = connection.prepareStatement(sql2);
-					LOGGER.info("Granting admin options to created account (for purpose of testing)");
-					statement2.executeUpdate();
+//	For now, pending and resolved requests are lumped together, but this functionality will change when the project nears completion.
+	/**
+	 * This method will only be accessible to managers.
+	 * @param employee
+	 * @return
+	 */
+	public List<Request> managerViewRequest(Employee employee) {
+		RequestRepositoryJdbc repository = new RequestRepositoryJdbc();
+		List<Request> requests = new ArrayList<>();
+		LOGGER.trace(
+				"Calling all requests.");
+		requests = repository.findAll();
+		return requests;
+	}
+	
+	/**
+	 * This method will be accessible to managers only and is how they will approve/deny requests.
+	 * Up the application pipeline, we'll figure out how to change only the request status ID
+	 * (or we'll come back here and update the Service class).  Then we'll pass in a request object with that changed status
+	 * and use that object to update the database entry for that request.
+	 * We need to make sure to preserve the R_ID of the original request.
+	 * @param request
+	 * @return
+	 */
+	public boolean updateRequest(Request request) {
+		LOGGER.trace("Updating request info with parameter request object: " + request);
+		RequestRepositoryJdbc repository = new RequestRepositoryJdbc();
+		return repository.update(request);
+	}
 
-				} catch (SQLException e) {
-					LOGGER.error("Could not create user account.", e);
-					System.out.println("There was an error in registering your account.");
-					return;
-				}
-				System.out.println("Account created!");
-				try (Connection connection = ConnectionUtil.getConnection(username, password)){
-//					Creating Bank Account Table
-					String sql3 = "CREATE TABLE BANK_ACCOUNT (BALANCE NUMBER)";
-					PreparedStatement statement3 = connection.prepareStatement(sql3);
-					LOGGER.info("Creating test bank account table");
-					statement3.executeUpdate();
-					String sql4 = "INSERT INTO bank_account VALUES(0)";
-					PreparedStatement statement4 = connection.prepareStatement(sql4);
-					statement4.executeUpdate();
-				} catch (SQLException e) {
-					LOGGER.error("Could not log into user account.", e);
-					System.out.println("There was an error in logging into your registered account.");
-					return;
-				}
-			} else {
-				System.out.println("Please ensure your re-entered password matches exactly what you typed in the first time.");
-			}
-		} else {
-			System.out.println("Please restrict your username to 10 alphanumeric characters.");
-		}
+	/**
+	 * Just as before, this method is only accessible if user is logged in.
+	 * @param employee
+	 */
+	public Employee viewInfo(Employee employee) {
+		LOGGER.trace("Viewing employee info with parameter employee ID: " + employee.getEmployeeId());
+		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
+		return repository.findByEmployeeId(employee.getEmployeeId());
+	}
+
+	/**
+	 * Up the application pipeline, we'll figure out how to change only the values we want to update
+	 * (or we'll come back here and update the Service class).  Then we'll pass in an employee object with those changed values
+	 * (not the user's actual employee object) and use that object to update the database entry for that user.
+	 * We need to make sure to preserve the E_ID of the original user.
+	 * @param employee
+	 */
+	public boolean updateInfo(Employee employee) {
+		LOGGER.trace("Updating employee info with parameter employee object: " + employee);
+		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
+		return repository.update(employee);
+	}
+
+	public static void main(String[] args) {
+		Service service = new Service();
+		new Status();
+		Employee testEmployee = service.login(new Employee("TestE", "password"));
+		System.out.println(service.managerViewRequest(testEmployee));
+//		testEmployee.setFirstName("Test");
+//		testEmployee.setUsername("TestE");
+//		service.updateInfo(testEmployee);
+
+//		Request testRequest = new Request(3, new Status(2));
+//		service.updateRequest(testRequest);
+		
+		
 	}
 }

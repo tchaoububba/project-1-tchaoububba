@@ -34,5 +34,7 @@ public interface EmployeeRepository {
 	public List<Employee> findByLastName(String lastName);
 	
 	public List<Employee> findAll();
+	
+	public boolean update(Employee employee);
 
 }

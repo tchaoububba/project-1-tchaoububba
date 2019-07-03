@@ -32,15 +32,16 @@ public class RequestRepositoryJdbc implements RequestRepository {
 		//This is try-with-resources, so we don't need a finally block
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
-			String sql = "INSERT INTO REQUEST VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO request VALUES (NULL, ?, ?, 1)";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setLong(++parameterIndex, request.getRequestId());
+//			statement.setLong(++parameterIndex, request.getRequestId());
 			statement.setLong(++parameterIndex, request.getEmployee().getEmployeeId());
 			statement.setString(++parameterIndex, request.getRequestBody());
-			statement.setLong(++parameterIndex, request.getStatus().getStatusId());
+//			statement.setLong(++parameterIndex, request.getStatus().getStatusId());
 			
 			if (statement.executeUpdate() > 0) {
+				LOGGER.info("Creation successful!");
 				return true;
 			}
 		} catch (SQLException e) {
@@ -61,7 +62,7 @@ public class RequestRepositoryJdbc implements RequestRepository {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM REQUEST WHERE R_ID = ?";
+			String sql = "SELECT * FROM request WHERE R_ID = ?";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setLong(++parameterIndex, requestId);
@@ -96,7 +97,7 @@ public class RequestRepositoryJdbc implements RequestRepository {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM REQUEST WHERE E_ID = ?";
+			String sql = "SELECT * FROM request WHERE E_ID = ?";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setLong(++parameterIndex, employeeId);
@@ -135,7 +136,7 @@ public class RequestRepositoryJdbc implements RequestRepository {
 		LOGGER.trace("Entering finding all requests");
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM REQUEST";
+			String sql = "SELECT * FROM request";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
@@ -166,5 +167,28 @@ public class RequestRepositoryJdbc implements RequestRepository {
 			LOGGER.error("Could not find all requests.", e);
 		}
 		return null;
+	}
+	
+	@Override
+	public boolean update(Request request) {
+		LOGGER.trace("Entering update request method");
+		try(Connection connection = ConnectionUtil.getConnection()) {
+			int parameterIndex = 0;
+			//* could be "AS [DESIRED_NAME]
+			String sql = "UPDATE request SET S_ID = ? WHERE R_ID = ?";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			
+			statement.setLong(++parameterIndex, request.getStatus().getStatusId());
+			statement.setLong(++parameterIndex, request.getRequestId());
+			
+			if (statement.executeUpdate() > 0) {
+				LOGGER.info("Update successful!");
+				return true;
+			}
+		} catch (SQLException e) {
+			LOGGER.error("Could not update request.", e);
+		}
+		return false;
 	}
 }

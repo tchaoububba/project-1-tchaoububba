@@ -6,6 +6,17 @@ public class Status implements Comparable<Status> {
 	private String statusName;
 	
 	public Status() {}
+	
+	public Status(long statusId) {
+		this.statusId = statusId;
+		if (statusId == 3) {
+			this.statusName="DENIED";
+		} else if (statusId == 2) {
+			this.statusName="APPROVED";
+		} else {
+			this.statusName="PENDING";
+		}
+	}
 
 	public Status(long statusId, String statusName) {
 		this.statusId = statusId;

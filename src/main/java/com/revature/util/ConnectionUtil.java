@@ -10,18 +10,19 @@ public class ConnectionUtil {
 	//REMEMBER TO USE THIS INSTEAD OF SYSOUT
 	private static final Logger LOGGER = Logger.getLogger(ConnectionUtil.class);
 	
-	//static method so you only have to connect and use connection parameters once
-	public static Connection getConnection(String username, String password) throws SQLException {
-		String url = "jdbc:oracle:thin:@mydbinstance.ceamzblcgdau.us-east-1.rds.amazonaws.com:1521:ORCL";
-		
-		return DriverManager.getConnection(url, username, password);
-		
-	}
 	
+//	public static Connection getConnection(String username, String password) throws SQLException {
+//		String url = "jdbc:oracle:thin:@mydbinstance.ceamzblcgdau.us-east-1.rds.amazonaws.com:1521:ORCL";
+//		
+//		return DriverManager.getConnection(url, username, password);
+//		
+//	}
+	
+	//static method so you only have to connect and use connection parameters once
 	public static Connection getConnection() throws SQLException {
 		String url = "jdbc:oracle:thin:@mydbinstance.ceamzblcgdau.us-east-1.rds.amazonaws.com:1521:ORCL";
-		String username = "tchaoububba";
-		String password = "St042192";
+		String username = "TEST_USER";
+		String password = "p4ssw0rd";
 		
 		return DriverManager.getConnection(url, username, password);
 		
@@ -30,8 +31,8 @@ public class ConnectionUtil {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		try {
-			getConnection(scanner.nextLine(), scanner.nextLine());
-			LOGGER.info("Connection succesful");
+			getConnection();
+			LOGGER.info("Connection successful");
 		} catch (SQLException e) {
 			LOGGER.error("Could not connect", e);
 		}
