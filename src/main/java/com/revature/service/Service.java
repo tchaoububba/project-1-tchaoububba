@@ -125,6 +125,9 @@ public final class Service {
 	 * This method will only be accessible if the user is logged in. Thus, the
 	 * passed in object should have the whole Employee object filled out. We'll use
 	 * the filled in ID field to get any requests belonging to that Employee.
+	 * We will give an employee the option to enter this method with his own info only,
+	 * but a manager will have the option to do that and to select a different employee ID.
+	 * With that ID, we'll make a new Employee object to pass into here.
 	 * 
 	 * @param employee
 	 */
@@ -195,12 +198,26 @@ public final class Service {
 		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
 		return repository.update(employee);
 	}
+	
+	/**
+	 * This method is only accessible to managers.
+	 * @param employee
+	 * @return
+	 */
+	public List<Employee> managerViewEmployee(Employee employee) {
+		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
+		List<Employee> employees = new ArrayList<>();
+		LOGGER.trace(
+				"Calling all employees.");
+		employees = repository.findAll();
+		return employees;
+	}
 
 	public static void main(String[] args) {
 		Service service = new Service();
 		new Status();
-		Employee testEmployee = service.login(new Employee("TestE", "password"));
-		System.out.println(service.managerViewRequest(testEmployee));
+		Employee testEmployee = new Employee("TestE", "password");
+		System.out.println(service.managerViewEmployee(testEmployee));
 //		testEmployee.setFirstName("Test");
 //		testEmployee.setUsername("TestE");
 //		service.updateInfo(testEmployee);
