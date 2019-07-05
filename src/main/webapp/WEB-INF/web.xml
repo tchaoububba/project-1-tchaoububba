@@ -12,7 +12,7 @@
   	<servlet-class>com.revature.request.DispatcherServlet</servlet-class>
   </servlet>
   
-  <!-- Servlet Mapping for FrontController -->
+  <!-- Servlet Mapping for Project 1 -->
   <servlet-mapping>
   	<servlet-name>DispatcherServlet</servlet-name>
   	<!-- * it's a Wildcard (which means "anything") -->

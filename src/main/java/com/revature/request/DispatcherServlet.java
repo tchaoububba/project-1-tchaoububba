@@ -23,12 +23,14 @@ public class DispatcherServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Object data = RequestHelper.process(request);
 		
+		/* If what the controllers return is a String, we forward to an HTML file. */
 		if(data instanceof String) {
 			String path = (String) data;
 			LOGGER.trace(path);
 			
 			request.getRequestDispatcher(path).forward(request, response);
 		} else {
+			/* Else, we marshall the given POJO */
 			response.getWriter().write(new ObjectMapper().writeValueAsString(data));
 		}
 	}

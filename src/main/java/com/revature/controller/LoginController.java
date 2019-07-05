@@ -70,4 +70,8 @@ public class LoginController {
 //		Eventually, we'll plan to return a JSON object or something that can update a <p></p> field in the original login.html page.
 		return "loggedOutLogin.html";
 	}
+	
+	public static String viewHome(HttpServletRequest request) {
+		return service.viewHome((Employee)request.getSession().getAttribute("loggedEmployee"));
+	}
 }

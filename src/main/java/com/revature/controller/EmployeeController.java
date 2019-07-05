@@ -2,6 +2,8 @@ package com.revature.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
 import com.revature.model.Employee;
 import com.revature.model.Request;
 import com.revature.service.Service;
@@ -11,7 +13,22 @@ import com.revature.service.Service;
  * @author tchao
  *
  */
-public class EmployeeController implements ModelController {
+public final class EmployeeController implements ModelController {
+	
+	private static final Logger LOGGER = Logger.getLogger(EmployeeController.class);
+	
+	private static EmployeeController instance;
+
+	private EmployeeController() {
+		LOGGER.trace("Instantiation of EmployeeController class has been restricted.");
+	}
+
+	public static EmployeeController getInstance() {
+		if (instance == null) {
+			instance = new EmployeeController();
+		}
+		return instance;
+	}
 	
 	/*
 	 * Dependency
@@ -27,7 +44,7 @@ public class EmployeeController implements ModelController {
 //		/*At this point, the request must have been POST*/
 //		//request.getInputStream()
 //		
-//		//new ObjectMapper().method(string, Customer.class)
+		//new ObjectMapper().method(string, Customer.class)
 //		
 //		customerService.register(new Customer(0, request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("username"), request.getParameter("password")));
 //		

@@ -76,10 +76,16 @@ public final class Service {
 //		}
 	}
 
-	// This should probably go in a servlet that will respond to the title field of
-	// the Employee object and will show the appropriate home page
-	public boolean viewHome(Employee employee) {
-		return false;
+	/**
+	 * We'll respond with the string that sends the client to the right URI for their home.
+	 * @param employee
+	 * @return
+	 */
+	public String viewHome(Employee employee) {
+		if (employee.getTitle().getTitleId() == 2) {
+			return "managerHome";
+		}
+		return "employeeHome";
 	}
 
 	// This should probably go in a servlet that will end the current session and
