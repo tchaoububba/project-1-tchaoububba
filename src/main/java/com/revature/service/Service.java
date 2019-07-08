@@ -83,9 +83,9 @@ public final class Service {
 	 */
 	public String viewHome(Employee employee) {
 		if (employee.getTitle().getTitleId() == 2) {
-			return "managerHome";
+			return "managerHome.html";
 		}
-		return "employeeHome";
+		return "employeeHome.html";
 	}
 
 	// This should probably go in a servlet that will end the current session and

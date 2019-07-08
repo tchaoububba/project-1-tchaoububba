@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class DispatcherServlet extends HttpServlet {
-	Logger LOGGER = Logger.getLogger(DispatcherServlet.class);
+	private static final Logger LOGGER = Logger.getLogger(DispatcherServlet.class);
 
 	/**
 	 * Java 2.x compatibility
@@ -21,6 +21,7 @@ public class DispatcherServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		LOGGER.trace("DispatcherServlet doGet method");
 		Object data = RequestHelper.process(request);
 		
 		/* If what the controllers return is a String, we forward to an HTML file. */
@@ -37,6 +38,7 @@ public class DispatcherServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		LOGGER.trace("DispatcherServlet doPost method");
 		doGet(request, response);
 	}
 }

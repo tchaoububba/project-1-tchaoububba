@@ -1,0 +1,43 @@
+/* Top layer */
+#menu li{
+    display: inline;
+}
+
+#menu li a{
+    background-color: lightblue;
+    color: black;
+    /* Order is always top right bottom left */
+    padding: 10px 25px 10px 25px;
+    text-decoration:none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#menu li a:hover{
+    background-color: darkblue;
+}
+
+.inline {
+    display: inline;
+  }
+  
+  .link-button {
+    background-color: lightblue;
+    color: black;
+    padding: 10px 25px 10px 25px;
+    text-decoration:none;
+    border: none;
+    outline-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .link-button:focus {
+    outline: none;
+  }
+  
+  .link-button:active {
+    color:darkblue;
+  }
+
+  .link-button:hover {
+      background-color: darkblue;
+  }

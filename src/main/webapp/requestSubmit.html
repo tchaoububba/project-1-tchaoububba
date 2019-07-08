@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body bgcolor="#F8C471">
+    <div class="container-fluid">
+        <div class="row">
+            <h3>Reimbursement Submission Page</h3>
+            <p>In the text box below, please write how much money you should be reimbursed for and the reason for the reimbursement.</p>
+        </div>
+        <div class="row">
+            <form name="reimbursementForm" action="submitRequest.do" method="POST">
+                <textarea id="requestBody" name="requestBody" required
+                style="position:relative; top:0; left:0; bottom:0; right:0; width:75%; height:100px; margin:0; padding:0;"></textarea>
+        </div>
+        <div class="row">
+                <input type="Submit" value="Submit">
+                Click this button to submit this request</input>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- style="position: fixed; top:150px; left:0; bottom:0; right:0; width:100%; height:50%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" -->

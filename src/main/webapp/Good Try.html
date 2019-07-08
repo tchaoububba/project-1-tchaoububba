@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reimbursement Requests Hub</title>
+    <!-- This applies the style from our CSS file into this HTML page. -->
+    <link rel="stylesheet" type="text/css" href="CSS/horizontalTopButtons.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div style="position: relative; height: 80px; top: 5px; left: 2px;">
+        <img src="Images/Revature_logo.png" alt="Revature logo"/>
+    </div>
+
+    <div id="menu" style="position: absolute; top: 30px; left: 150px;">
+        <ul type="none">
+            <li><a href="requestSubmit.html" target="myFrame">Submit a request</a></li>
+            <li><a href="getRequests.do" target="myFrame">View submitted requests</a></li>
+        </ul>
+    </div>
+
+    <p>Please select the action you would like to take</p><br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <iframe name="myFrame" src="requestSubmit.html" style="position:fixed; top:250px; left:5px; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+                    Your browser doesn't support iframes
+                </iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

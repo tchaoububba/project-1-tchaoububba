@@ -53,6 +53,10 @@ public final class EmployeeController implements ModelController {
 
 	@Override
 	public Object getEmployee(HttpServletRequest request) {
+		if (request.getSession().getAttribute("loggedEmployee") == null) {
+			LOGGER.trace("There is no longer a loggedEmployee storeda. We need to implement a way of telling the client he was logged out.");
+			return "login.html";
+		}
 		Employee employee = (Employee)request.getSession().getAttribute("loggedEmployee");
 		//Calls the service which calls the DAO to get an employee
 		return service.viewInfo(employee);
@@ -60,6 +64,10 @@ public final class EmployeeController implements ModelController {
 	
 	@Override
 	public Object getAllEmployees(HttpServletRequest request) {
+		if (request.getSession().getAttribute("loggedEmployee") == null) {
+			LOGGER.trace("There is no longer a loggedEmployee storeda. We need to implement a way of telling the client he was logged out.");
+			return "login.html";
+		}
 		Employee employee = (Employee)request.getSession().getAttribute("loggedEmployee");
 		//Calls the service which calls the DAO to get the list of employees
 		return service.managerViewEmployee(employee);
@@ -67,6 +75,10 @@ public final class EmployeeController implements ModelController {
 
 	@Override
 	public String updateEmployee(HttpServletRequest request) {
+		if (request.getSession().getAttribute("loggedEmployee") == null) {
+			LOGGER.trace("There is no longer a loggedEmployee storeda. We need to implement a way of telling the client he was logged out.");
+			return "login.html";
+		}
 		Employee employee = (Employee)request.getSession().getAttribute("loggedEmployee");
 		employee.setFirstName(request.getParameter("firstName"));
 		employee.setLastName(request.getParameter("lastName"));
@@ -82,6 +94,10 @@ public final class EmployeeController implements ModelController {
 //	I may have to remember to add options to html page for Manager to view his own requests or those of the selected ID.
 	@Override
 	public Object getRequests(HttpServletRequest request) {
+		if (request.getSession().getAttribute("loggedEmployee") == null) {
+			LOGGER.trace("There is no longer a loggedEmployee stored. We need to implement a way of telling the client he was logged out.");
+			return "login.html";
+		}
 		Employee employee = (Employee)request.getSession().getAttribute("loggedEmployee");
 		//Calls the service which calls the DAO to get a list of requests
 		if (employee.getTitle().getTitleId() == 2) {
@@ -92,6 +108,10 @@ public final class EmployeeController implements ModelController {
 
 	@Override
 	public Object getAllRequests(HttpServletRequest request) {
+		if (request.getSession().getAttribute("loggedEmployee") == null) {
+			LOGGER.trace("There is no longer a loggedEmployee storeda. We need to implement a way of telling the client he was logged out.");
+			return "login.html";
+		}
 		Employee employee = (Employee)request.getSession().getAttribute("loggedEmployee");
 		//Calls the service which calls the DAO to get the list of requests
 		return service.managerViewRequest(employee);
@@ -100,14 +120,24 @@ public final class EmployeeController implements ModelController {
 	@Override
 	public String submitRequest(HttpServletRequest request) {
 		//Calls the service which calls the DAO to submit a request
-		if (service.submitRequest(new Request((Employee)request.getSession().getAttribute("loggedEmployee"),request.getParameter("requestBody")))) {
-			return "Your request was submitted successfully.";
+		if (request.getSession().getAttribute("loggedEmployee") == null) {
+			LOGGER.trace("There is no longer a loggedEmployee storeda. We need to implement a way of telling the client he was logged out.");
+			return "login.html";
 		}
-		return "Your request was not submitted.";
+		if (service.submitRequest(new Request((Employee)request.getSession().getAttribute("loggedEmployee"),request.getParameter("requestBody")))) {
+			LOGGER.trace("Your request was submitted successfully.<<<<We need to incorporate that message somehow");
+			return LoginController.viewHome(request);
+		}
+		LOGGER.trace("Your request was not submitted.<<<<We need to incorporate that message somehow");
+		return LoginController.viewHome(request);
 	}
 
 	@Override
 	public String updateRequest(HttpServletRequest request) {
+		if (request.getSession().getAttribute("loggedEmployee") == null) {
+			LOGGER.trace("There is no longer a loggedEmployee storeda. We need to implement a way of telling the client he was logged out.");
+			return "login.html";
+		}
 		if (service.updateRequest(new Request(Long.parseLong(request.getParameter("requestId"))))) {
 			return "The request was successfully updated.";
 		}

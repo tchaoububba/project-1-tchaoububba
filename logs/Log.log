@@ -833,3 +833,6 @@ java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
 2019-07-03 11:06:14 TRACE Service:20 - Instantiation of Service class has been restricted.
 2019-07-03 11:06:14 TRACE Service:210 - Calling all employees.
 2019-07-03 11:06:14 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
+2019-07-07 17:49:25 TRACE Service:20 - Instantiation of Service class has been restricted.
+2019-07-07 17:49:25 TRACE Service:216 - Calling all employees.
+2019-07-07 17:49:25 TRACE EmployeeRepositoryJdbc:150 - Entering finding all employees
