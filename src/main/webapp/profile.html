@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html>
+<HTML>
 <head>
-    <title>Login</title>
+    <title>Profile</title>
+    <!-- This applies the style from our CSS file into this HTML page. -->
+    <link rel="stylesheet" type="text/css" href="CSS/horizontalTopButtons.css">
 </head>
-
 <body>
-    <h1>Please input your login credentials</h1>
+    <div style="position:relative; height:80px;"> <!-- Gives height of divistion with respect to current position -->
+        <img src="Images/Revature_logo.png" 
+        alt="logo" />
+    </div>
 
-    <form name="loginForm" action="login.do" method="POST" onsubmit="return validateForm()">
-        <!-- fields -->
-		<input name="username" type="text" placeholder="Username" />
-		<input name="password" type="password" placeholder="Password"/>
-		
-		<!-- button -->
-		<input type="submit" value="SUBMIT" />
-    </form>
-
-    <script>
-        function validateForm(){
-            var username=document.loginForm.username.value;
-            var password=document.loginForm.password.value;
-
-            if(username==null||username==""){
-                alert("Username field cannot be blank!");
-                return false;
-            }else if(password==null||password==""){
-                alert("Password field cannot be blank!");
-                return false;
-            }
-        }
-    </script>
+    <div id="menu" style="position:absolute; top:33px; left:150px;">
+        <ul type="none"> <!-- circle / disc -->
+            <!-- If you don't specify a target, it opens up the link in a new tab.
+                Otherwise, it opens up inside the frame. -->
+            <!-- Relatively starts from where the element would be if it were still in the normal flow -->
+            <form method="post" action="getEmployee.do" target="myframe" class="inline">
+                <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
+                <button type="submit" name="submit_param" value="submit_value" class="link-button" style="font-size : 16px;">
+                    View Profile Information
+                </button>
+            </form>
+            <li><a href="updateEmployee.html" target="myframe">Update Your Info</a></li>
+            <form method="post" action="home.do" class="inline">
+                <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
+                <button type="submit" name="submit_param" value="submit_value" class="link-button" style="font-size : 16px;">
+                    Back to Home
+                </button>
+            </form>
+        </ul>
+        <p style="position: relative; left:-145px;">Please select the action you would like to take from the choices above</p>
+        <iframe width="1000px" height="350px"
+            name="myframe" src="getEmployee.do" style="position:relative; left:-145px;">
+        </iframe>
+    </div>
+    
 </body>
-</html>
+</HTML>
+

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <HTML>
 <head>
-    <title>Reimbursement Requests</title>
+    <title>Manage Requests</title>
     <!-- This applies the style from our CSS file into this HTML page. -->
     <link rel="stylesheet" type="text/css" href="CSS/horizontalTopButtons.css">
 </head>
@@ -16,13 +16,13 @@
             <!-- If you don't specify a target, it opens up the link in a new tab.
                 Otherwise, it opens up inside the frame. -->
             <!-- Relatively starts from where the element would be if it were still in the normal flow -->
-            <li><a href="requestSubmit.html" target="myframe">Submit a request</a></li>
-            <form method="post" action="getRequests.do" target="myframe" class="inline">
-                <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
-                <button type="submit" name="submit_param" value="submit_value" class="link-button" style="font-size : 16px;">
-                    View submitted requests
-                </button>
+            <form target="myframe" method="post" action="getAllRequests.do" class="inline">
+                    <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
+                    <button type="submit" name="submit_param" value="submit_value" class="link-button" style="font-size : 16px;">
+                        View All Requests
+                    </button>
             </form>
+            <li><a href="getEmployeeRequests.html" target="myframe">View A Specific Employee's Requests</a></li>
             <form method="post" action="home.do" class="inline">
                 <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
                 <button type="submit" name="submit_param" value="submit_value" class="link-button" style="font-size : 16px;">
@@ -32,10 +32,9 @@
         </ul>
         <p style="position: relative; left:-145px;">Please select the action you would like to take from the choices above</p>
         <iframe width="1000px" height="350px"
-            name="myframe" src="requestSubmit.html" style="position:relative; left:-145px;">
+            name="myframe" src="getAllRequests.do" style="position:relative; left:-145px;">
         </iframe>
     </div>
     
 </body>
 </HTML>
-

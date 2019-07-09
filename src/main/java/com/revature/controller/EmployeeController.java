@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 
 import com.revature.model.Employee;
 import com.revature.model.Request;
+import com.revature.model.Status;
 import com.revature.service.Service;
 
 /**
@@ -80,15 +81,18 @@ public final class EmployeeController implements ModelController {
 			return "login.html";
 		}
 		Employee employee = (Employee)request.getSession().getAttribute("loggedEmployee");
+		LOGGER.trace("EmployeeController updateEmployee method with parameters, firstName: " + request.getParameter("firstName") + " lastName: " + request.getParameter("lastName"));
 		employee.setFirstName(request.getParameter("firstName"));
 		employee.setLastName(request.getParameter("lastName"));
-		employee.setUsername(request.getParameter("username"));
-		employee.setPassword(request.getParameter("password"));
+//		employee.setUsername(request.getParameter("username"));
+//		employee.setPassword(request.getParameter("password"));
 		//Calls the service which calls the DAO to update an employee
-		if (service.updateInfo(employee) == true) {
-			return "Your information was updated successfully!";
+		if (service.updateInfo(employee)) {
+			LOGGER.trace("Your profile information was updated successfully!<<<<We need to incorporate that message somehow");
+			return "profile.html";
 		}
-		return "Your information was not updated.";
+		LOGGER.trace("Your profile information was not updated.<<<<We need to incorporate that message somehow");
+		return "profile.html";
 	}
 
 //	I may have to remember to add options to html page for Manager to view his own requests or those of the selected ID.
@@ -101,6 +105,9 @@ public final class EmployeeController implements ModelController {
 		Employee employee = (Employee)request.getSession().getAttribute("loggedEmployee");
 		//Calls the service which calls the DAO to get a list of requests
 		if (employee.getTitle().getTitleId() == 2) {
+			if (request.getParameter("employeeId") == null) {
+				return service.employeeViewRequest(employee);
+			}
 			employee.setEmployeeId(Long.parseLong(request.getParameter("employeeId")));
 		}
 		return service.employeeViewRequest(employee);
@@ -138,10 +145,12 @@ public final class EmployeeController implements ModelController {
 			LOGGER.trace("There is no longer a loggedEmployee storeda. We need to implement a way of telling the client he was logged out.");
 			return "login.html";
 		}
-		if (service.updateRequest(new Request(Long.parseLong(request.getParameter("requestId"))))) {
-			return "The request was successfully updated.";
+		if (service.updateRequest(new Request(Long.parseLong(request.getParameter("requestId")), new Status(Long.parseLong(request.getParameter("statusId")))))) {
+			LOGGER.trace("The request was successfully updated.<<<<We need to incorporate that message somehow");
+			return "manager.html";
 		}
-		return "The request was not updated";
+		LOGGER.trace("The request was not updated.<<<<We need to incorporate that message somehow");
+		return "manager.html";
 	}
 
 }

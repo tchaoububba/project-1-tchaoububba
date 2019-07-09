@@ -189,14 +189,14 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
 			//* could be "AS [DESIRED_NAME]
-			String sql = "UPDATE employee SET FIRST_NAME = ?, LAST_NAME = ?, USERNAME = ?, PASSWORD = ? WHERE E_ID = ?";
+			String sql = "UPDATE employee SET FIRST_NAME = ?, LAST_NAME = ? WHERE E_ID = ?";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
 			statement.setString(++parameterIndex, employee.getFirstName());
 			statement.setString(++parameterIndex, employee.getLastName());
-			statement.setString(++parameterIndex, employee.getUsername());
-			statement.setString(++parameterIndex, employee.getPassword());
+//			statement.setString(++parameterIndex, employee.getUsername());
+//			statement.setString(++parameterIndex, employee.getPassword());
 			statement.setLong(++parameterIndex, employee.getEmployeeId());
 			
 			if (statement.executeUpdate() > 0) {

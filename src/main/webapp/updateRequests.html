@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Specific Employee's Requests</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body bgcolor="#F8C471">
+    <div class="container-fluid">
+        <div class="row">
+            <h3>Profile Update Page</h3>
+            <p>Below, please enter the Request ID number of the request you would like to update.</p><br>
+            <p>Then select whether you would like to approve or deny that request.</p><br>
+            <p>Click on "View Reimbursement Requests" at the top of the page for a reference of the requests and their IDs.</p>
+        </div>
+        <div class="row">
+            <form name="profileForm" action="updateRequest.do" method="POST">
+                Request ID: <input type="number" id="requestId" name="requestId" required /><br>
+                Approve/Deny: <input type="radio" name="statusId" value="2" required/>Approve
+                              <input type="radio" name="statusId" value="3" required/>Deny<br>
+        </div>
+        <div class="row">
+                <input type="Submit" value="Submit">
+                Click this button to submit this information.</input>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

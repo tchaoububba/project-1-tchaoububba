@@ -6,6 +6,15 @@ public class Title implements Comparable<Title> {
 	private String titleName;
 	
 	public Title() {}
+	
+	public Title(long titleId) {
+		this.titleId = titleId;
+		if (titleId == 2) {
+			this.titleName="MANAGER";
+		} else {
+			this.titleName="EMPLOYEE";
+		}
+	}
 
 	public Title(long titleId, String titleName) {
 		this.titleId = titleId;
