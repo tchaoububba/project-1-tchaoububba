@@ -1,11 +1,14 @@
 package com.revature.request;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
 import com.revature.controller.EmployeeController;
 import com.revature.controller.LoginController;
+import com.revature.zjsonexperiment.JacksonPojoToJson;
 
 public class RequestHelper {
 	private static final Logger LOGGER = Logger.getLogger(RequestHelper.class);
@@ -51,6 +54,13 @@ public class RequestHelper {
 			return EmployeeController.getInstance().submitRequest(request);
 		case "/ReimbursementProject/updateRequest.do":
 			return EmployeeController.getInstance().updateRequest(request);
+		case "/ReimbursementProject/test.do":
+			try {
+				JacksonPojoToJson.createEmployeeJsonFile(request);;
+			} catch (IOException e) {
+				LOGGER.error(e);
+			}
+			return "TestAttempted2.html";
 		default:
 			//We should return a 404 view here
 			return "404.html";

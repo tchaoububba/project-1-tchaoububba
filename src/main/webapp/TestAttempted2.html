@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script>
+        function getdata()
+        {   var xhttp=new XMLHttpRequest();
+            // Called whenever ready attribute changes
+            xhttp.onreadystatechange=function()
+            {   // Ready state represents state of request
+                if(xhttp.readyState==4 && xhttp.status==200)
+                {   var javaobj=JSON.parse(xhttp.response);
+                    document.getElementById('div1').innerHTML=javaobj.firstName;
+                }
+            }
+            xhttp.open("GET","post.json",true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <input type="button"
+            name="name"
+            onclick="getdata()"
+            value="Click"/>
+            <div id="div1"></div>
+</body>
+</html>

@@ -16,6 +16,9 @@ import org.apache.log4j.Logger;
 import com.revature.model.Employee;
 import com.revature.service.Service;
 
+//import net.javaguides.jackson.pojotojson.Post;
+//import net.javaguides.jackson.pojotojson.Tag;
+
 public class LoginController {
 	private static final Logger LOGGER = Logger.getLogger(LoginController.class);
 	
@@ -85,4 +88,44 @@ public class LoginController {
 		}
 		return service.viewHome((Employee)request.getSession().getAttribute("loggedEmployee"));
 	}
+	
+//	public void createEmployeeJsonFile(HttpServletRequest request) {
+//		// Create ObjectMapper
+//        ObjectMapper mapper = new ObjectMapper();
+//        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+//        // create a post
+//        Employee employee = new Employee();
+//        if (((Employee)(request.getSession().getAttribute("loggedEmployee"))).getEmployeeId() != 0) {
+//        	employee.setEmployeeId(((Employee)(request.getSession().getAttribute("loggedEmployee"))).getEmployeeId());
+//        }
+//        if (((Employee)(request.getSession().getAttribute("loggedEmployee"))).getFirstName() != null) {
+//        	employee.setFirstName(((Employee)(request.getSession().getAttribute("loggedEmployee"))).getFirstName());
+//        }
+//        if (request.getSession().getAttribute("lastName") == null) {
+//        	employee.setLastName(((Employee)(request.getSession().getAttribute("loggedEmployee"))).getLastName());
+//        }
+//        if (request.getSession().getAttribute("u") == null) {
+//        	employee.setEmployeeId(((Employee)(request.getSession().getAttribute("loggedEmployee"))).getEmployeeId());
+//        }
+//        employee.setContent("HTML content here");
+//        employee.setLastUpdatedAt(new Date());
+//        employee.setPostedAt(new Date());
+//        // create some predefined tags
+//        Set < Tag > tags = new HashSet < > ();
+//        Tag java = new Tag(1L, "Java");
+//        Tag jackson = new Tag(2L, "Jaaaaackson");
+//        Tag json = new Tag(3L, "JSON");
+//        tags.add(java);
+//        tags.add(jackson);
+//        tags.add(json);
+//        // set tags to post
+//        employee.setTags(tags);
+//        // Convert object to JSON string
+//        String postJson = mapper.writeValueAsString(employee);
+//        System.out.println(postJson);
+//        // Save JSON string to file
+//        FileOutputStream fileOutputStream = new FileOutputStream("post.json");
+//        mapper.writeValue(fileOutputStream, employee);
+//        fileOutputStream.close();
+//	}
 }
