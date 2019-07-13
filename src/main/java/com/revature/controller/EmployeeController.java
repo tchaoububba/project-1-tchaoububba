@@ -87,10 +87,12 @@ public final class EmployeeController implements ModelController {
 //		employee.setUsername(request.getParameter("username"));
 //		employee.setPassword(request.getParameter("password"));
 		//Calls the service which calls the DAO to update an employee
-		if (service.updateInfo(employee)) {
+		Employee updatedEmployee = service.updateInfo(employee);
+		if (updatedEmployee == null) {
 			LOGGER.trace("Your profile information was updated successfully!<<<<We need to incorporate that message somehow");
 			return "profile.html";
 		}
+		request.getSession().setAttribute("loggedEmployee", updatedEmployee);
 		LOGGER.trace("Your profile information was not updated.<<<<We need to incorporate that message somehow");
 		return "profile.html";
 	}

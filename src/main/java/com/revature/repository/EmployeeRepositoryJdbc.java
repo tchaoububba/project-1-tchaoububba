@@ -184,7 +184,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 	}
 	
 	@Override
-	public boolean update(Employee employee) {
+	public Employee update(Employee employee) {
 		LOGGER.trace("Entering update employee method");
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
@@ -201,12 +201,12 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 			
 			if (statement.executeUpdate() > 0) {
 				LOGGER.info("Update successful!");
-				return true;
+				return employee;
 			}
 		} catch (SQLException e) {
 			LOGGER.error("Could not update employee.", e);
 		}
-		return false;
+		return null;
 	}
 	
 	public static void main(String[] args) {

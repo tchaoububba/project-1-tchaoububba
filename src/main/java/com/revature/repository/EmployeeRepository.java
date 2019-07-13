@@ -35,6 +35,6 @@ public interface EmployeeRepository {
 	
 	public List<Employee> findAll();
 	
-	public boolean update(Employee employee);
+	public Employee update(Employee employee);
 
 }

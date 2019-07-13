@@ -16,12 +16,7 @@
             <!-- If you don't specify a target, it opens up the link in a new tab.
                 Otherwise, it opens up inside the frame. -->
             <!-- Relatively starts from where the element would be if it were still in the normal flow -->
-            <form method="post" action="getEmployee.do" target="myframe" class="inline">
-                <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
-                <button type="submit" name="submit_param" value="submit_value" class="link-button" style="font-size : 16px;">
-                    View Profile Information
-                </button>
-            </form>
+            <li><a href="profileInfo.html" target="myframe">View Profile Information</a></li>
             <li><a href="updateEmployee.html" target="myframe">Update Your Info</a></li>
             <form method="post" action="home.do" class="inline">
                 <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
@@ -29,10 +24,22 @@
                     Back to Home
                 </button>
             </form>
+            <form method="post" action="logout.do" class="inline">
+                <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
+                <button type="submit" name="submit_param" value="submit_value" class="link-button" style="font-size : 16px;">
+                    Logout
+                </button>
+            </form>
+            <form method="post" action="test.do" target="myframe" class="inline">
+                    <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
+                    <button type="submit" name="submit_param" value="submit_value" class="link-button" style="font-size : 16px;">
+                        Test
+                    </button>
+                </form>
         </ul>
         <p style="position: relative; left:-145px;">Please select the action you would like to take from the choices above</p>
         <iframe width="1000px" height="350px"
-            name="myframe" src="getEmployee.do" style="position:relative; left:-145px;">
+            name="myframe" src="profileInfo.html" style="position:relative; left:-145px;">
         </iframe>
     </div>
     

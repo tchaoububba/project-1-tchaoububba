@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Information</title>
+    <meta charset="utf-8"/>
+    <script>
+    window.onload=function(){
+    viewProfile();
+}
+function viewProfile(){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function(){
+        if(xmlhttp.readyState == 4 && xmlhttp.responseText){
+            let data = JSON.parse(xmlhttp.responseText);
+            console.log(xmlhttp.responseText);
+            var text = "";
+            var i = 0;
+            do {
+                text +="<tr>"+
+	                "<td>"+data[i].employeeId+"</td>"+
+	                "<td>"+data[i].firstName+"</td>"+
+	                "<td>"+data[i].lastName+"</td>"+
+	                "<td>"+data[i].username+"</td>"+
+	                "</tr>";
+                i++;
+            } while (data[i] != null);
+            document.getElementById("demo").innerHTML = text;
+        }
+    }
+    xmlhttp.open("GET", "getAllEmployees.do");
+    xmlhttp.send();
+}
+    </script>
+</head>
+<body>
+    <!-- align="center" bgcolor="lightblue" -->
+    <table border="1" >
+        <thead>
+            <tr bgcolor="lightblue">
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody id="demo">
+        </tbody>
+    </table>
+</body>
+</html>

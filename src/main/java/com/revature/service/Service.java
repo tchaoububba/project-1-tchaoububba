@@ -2,11 +2,11 @@ package com.revature.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.revature.model.Employee;
 import com.revature.model.Request;
-import com.revature.model.Status;
 import com.revature.repository.EmployeeRepositoryJdbc;
 import com.revature.repository.RequestRepositoryJdbc;
 
@@ -190,6 +190,11 @@ public final class Service {
 		LOGGER.trace("Viewing employee info with parameter employee ID: " + employee.getEmployeeId());
 		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
 		return repository.findByEmployeeId(employee.getEmployeeId());
+//		try {
+//			JacksonPojoToJson.createEmployeeJsonFile(repository.findByEmployeeId(employee.getEmployeeId()));
+//		} catch (IOException e) {
+//			LOGGER.error("Error trying to create Employee JSON object",e);
+//		}
 	}
 
 	/**
@@ -199,7 +204,7 @@ public final class Service {
 	 * We need to make sure to preserve the E_ID of the original user.
 	 * @param employee
 	 */
-	public boolean updateInfo(Employee employee) {
+	public Employee updateInfo(Employee employee) {
 		LOGGER.trace("Updating employee info with parameter employee object: " + employee);
 		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
 		return repository.update(employee);
@@ -212,18 +217,21 @@ public final class Service {
 	 */
 	public List<Employee> managerViewEmployee(Employee employee) {
 		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
-		List<Employee> employees = new ArrayList<>();
-		LOGGER.trace(
-				"Calling all employees.");
-		employees = repository.findAll();
-		return employees;
+//		List<Employee> employees = new ArrayList<>();
+		LOGGER.trace("Calling all employees.");
+		return repository.findAll();
+//		try {
+//			JacksonPojoToJson.createEmployeeJsonListFile(repository.findAll());
+//		} catch (IOException e) {
+//			LOGGER.error("Error trying to create Employee List text file",e);
+//		}
 	}
 
 	public static void main(String[] args) {
-		Service service = new Service();
-		new Status();
-		Employee testEmployee = new Employee("TestE", "password");
-		System.out.println(service.managerViewEmployee(testEmployee));
+//		Service service = new Service();
+//		new Status();
+//		Employee testEmployee = new Employee("TestE", "password");
+////		System.out.println(service.managerViewEmployee(testEmployee));
 //		testEmployee.setFirstName("Test");
 //		testEmployee.setUsername("TestE");
 //		service.updateInfo(testEmployee);
