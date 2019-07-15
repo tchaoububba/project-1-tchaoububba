@@ -79,13 +79,13 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 						result.getString("LAST_NAME"),
 						result.getString("USERNAME"),
 						result.getString("PASSWORD"),
-						new Title(result.getLong("T_ID"), "")
+						new Title(result.getLong("T_ID"))
 						);
-				if (employee.getTitle().getTitleId() == 2) {
-					employee.getTitle().setTitleName("MANAGER");
-				} else {
-					employee.getTitle().setTitleName("EMPLOYEE");
-				}
+//				if (employee.getTitle().getTitleId() == 2) {
+//					employee.getTitle().setTitleName("MANAGER");
+//				} else {
+//					employee.getTitle().setTitleName("EMPLOYEE");
+//				}
 				return employee;
 			}
 		} catch (SQLException e) {
@@ -127,17 +127,17 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 						result.getString("LAST_NAME"),
 						result.getString("USERNAME"),
 						result.getString("PASSWORD"),
-						new Title(result.getLong("T_ID"), "")
+						new Title(result.getLong("T_ID"))
 						));
 			}
-			//Attempting to label Title name for each employee
-			for (Employee employee: employees) {
-				if (employee.getTitle().getTitleId() == 2) {
-					employee.getTitle().setTitleName("MANAGER");
-				} else {
-					employee.getTitle().setTitleName("EMPLOYEE");
-				}
-			}
+//			//Attempting to label Title name for each employee
+//			for (Employee employee: employees) {
+//				if (employee.getTitle().getTitleId() == 2) {
+//					employee.getTitle().setTitleName("MANAGER");
+//				} else {
+//					employee.getTitle().setTitleName("EMPLOYEE");
+//				}
+//			}
 			return employees;
 		} catch (SQLException e) {
 			LOGGER.error("Could not find employees.", e);
@@ -165,17 +165,17 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 						result.getString("LAST_NAME"),
 						result.getString("USERNAME"),
 						result.getString("PASSWORD"),
-						new Title(result.getLong("T_ID"), "")
+						new Title(result.getLong("T_ID"))
 						));
 			}
-			//Attempting to label Title name for each employee
-			for (Employee employee: employees) {
-				if (employee.getTitle().getTitleId() == 2) {
-					employee.getTitle().setTitleName("MANAGER");
-				} else {
-					employee.getTitle().setTitleName("EMPLOYEE");
-				}
-			}
+//			//Attempting to label Title name for each employee
+//			for (Employee employee: employees) {
+//				if (employee.getTitle().getTitleId() == 2) {
+//					employee.getTitle().setTitleName("MANAGER");
+//				} else {
+//					employee.getTitle().setTitleName("EMPLOYEE");
+//				}
+//			}
 			return employees;
 		} catch (SQLException e) {
 			LOGGER.error("Could not find all employees.", e);

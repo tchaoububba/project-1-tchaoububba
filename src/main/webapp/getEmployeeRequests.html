@@ -5,6 +5,46 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script>
+    "use strict";
+    // let url = new URL('http://localhost:8090/ReimbursementProject/getRequests.do');
+    // url.searchParams.set('employeeId', '1');
+
+    // // the parameter 'q' is encoded
+    // xhr.open('GET', url); // https://google.com/search?q=test+me%21
+
+    // let formData = new FormData(document.forms.profileForm);
+    function viewProfile() {
+        // console.log(oFormElement);
+        var xmlhttp = new XMLHttpRequest();
+        /*xmlhttp.onload = function(){console.log(xmlhttp.responseText);}*/
+        xmlhttp.open("GET", "getRequests.do?employeeId="+document.profileForm.employeeId.value, true);
+        
+        xmlhttp.onreadystatechange=function() {
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                let data = JSON.parse(xmlhttp.responseText);
+                console.log(xmlhttp.responseText);
+                var text = "";
+                var i = 0;
+                do {
+                    text +="<tr>"+
+                        "<td>"+data[i].requestId+"</td>"+
+                        "<td>"+data[i].employee.employeeId+"</td>"+
+                        "<td>"+data[i].status.statusName+"</td>"+
+                        "<td>"+data[i].requestBody+"</td>"+
+                        "</tr>";
+                    i++;
+                } while (data[i] != null);
+                document.getElementById("demo").innerHTML = text;
+            }
+        }
+        var employeeId=document.profileForm.employeeId.value;
+        console.log(employeeId);
+        xmlhttp.send();
+        return false; // Prevent page from submitting.
+    }
+    </script>
 </head>
 <body bgcolor="#F8C471">
     <div class="container-fluid">
@@ -13,14 +53,27 @@
             <p>Below, please enter the Employee ID number of the employee whose requests you would like to view.</p>
         </div>
         <div class="row">
-            <form name="profileForm" action="getRequests.do" method="POST">
+            <form name="profileForm" id="profileForm" action="getRequests.do" method="POST" onsubmit="return viewProfile();">
                 Employee ID: <input type="number" id="employeeId" name="employeeId" required /><br>
         </div>
         <div class="row">
-                <input type="Submit" value="Submit">
+                <input type="submit" value="Update">
                 Click this button to submit this information.</input>
             </form>
         </div>
     </div>
+    
+    <table border="1" >
+        <thead>
+            <tr bgcolor="lightblue">
+                <th>Request ID</th>
+                <th>Employee ID</th>
+                <th>Status</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody id="demo">
+        </tbody>
+    </table>
 </body>
 </html>

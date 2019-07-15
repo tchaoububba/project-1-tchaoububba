@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Specific Employee's Requests</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body bgcolor="#F8C471">
+    <div class="container-fluid">
+        <div class="row">
+            <h3>Profile Update Page</h3>
+            <p>Below, please enter the Employee ID number of the employee whose requests you would like to view.</p>
+        </div>
+        <div class="row">
+            <form name="profileForm" id="profileForm" method="POST" action="getRequests.do" onsubmit="return validateForm()">
+                <!-- fields -->
+                Employee ID: <input type="number" id="employeeId" name="employeeId" placeholder="Employee ID" required /><br>
+                <!-- button -->
+        </div>
+        <div class="row">
+                <input type="submit" value="SUBMIT" />
+            </form>
+        </div>
+    </div>
+    <script>
+        function validateForm(){
+            var employeeId=document.profileForm.employeeId.value;
+        }
+    </script>
+</body>
+</html>

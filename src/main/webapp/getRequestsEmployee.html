@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Profile Information</title>
+    <title>Submitted Requests Info</title>
     <meta charset="utf-8"/>
     <script>
     window.onload=function(){
@@ -9,7 +9,7 @@
     }
     function viewProfile(){
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "getAllEmployees.do", true);
+        xmlhttp.open("POST", "getRequests.do",true);
         xmlhttp.onreadystatechange=function() {
             if(xmlhttp.readyState == 4 && xmlhttp.responseText) {
                 let data = JSON.parse(xmlhttp.responseText);
@@ -18,11 +18,9 @@
                 var i = 0;
                 do {
                     text +="<tr>"+
-                        "<td>"+data[i].employeeId+"</td>"+
-                        "<td>"+data[i].firstName+"</td>"+
-                        "<td>"+data[i].lastName+"</td>"+
-                        "<td>"+data[i].username+"</td>"+
-                        "<td>"+data[i].title.titleName+"</td>"+
+                        "<td>"+data[i].requestId+"</td>"+
+                        "<td>"+data[i].status.statusName+"</td>"+
+                        "<td>"+data[i].requestBody+"</td>"+
                         "</tr>";
                     i++;
                 } while (data[i] != null);
@@ -38,11 +36,9 @@
     <table border="1" >
         <thead>
             <tr bgcolor="lightblue">
-                <th>Employee ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-                <th>Job Title</th>
+                <th>Request ID</th>
+                <th>Status</th>
+                <th>Message</th>
             </tr>
         </thead>
         <tbody id="demo">

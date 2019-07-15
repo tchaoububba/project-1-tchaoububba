@@ -21,7 +21,7 @@ public class DispatcherServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LOGGER.trace("DispatcherServlet doGet method");
+		LOGGER.trace("DispatcherServlet doGet method"+request.getQueryString());
 		Object data = RequestHelper.process(request);
 		
 		/* If what the controllers return is a String, we forward to an HTML file. */

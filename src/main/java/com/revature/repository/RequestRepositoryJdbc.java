@@ -111,19 +111,20 @@ public class RequestRepositoryJdbc implements RequestRepository {
 						result.getLong("R_ID"),
 						new Employee(result.getLong("E_ID")),
 						result.getString("R_BODY"),
-						new Status(result.getLong("S_ID"), "")
+						new Status(result.getLong("S_ID"))
 						));
 			}
-			//Attempting to label Status name for each request
-			for (Request request: requests) {
-				if (request.getStatus().getStatusId() == 3) {
-					request.getStatus().setStatusName("DENIED");
-				} else if (request.getStatus().getStatusId() == 2) {
-					request.getStatus().setStatusName("APPROVED");
-				} else {
-					request.getStatus().setStatusName("PENDING");
-				}
-			}
+//			//Attempting to label Status name for each request
+//			for (Request request: requests) {
+//				if (request.getStatus().getStatusId() == 3) {
+//					request.getStatus().setStatusName("DENIED");
+//				} else if (request.getStatus().getStatusId() == 2) {
+//					request.getStatus().setStatusName("APPROVED");
+//				} else {
+//					request.getStatus().setStatusName("PENDING");
+//				}
+//			}
+			LOGGER.trace("Requests list being sent from repository: " + requests);
 			return requests;
 		} catch (SQLException e) {
 			LOGGER.error("Could not find requests.", e);
@@ -149,19 +150,19 @@ public class RequestRepositoryJdbc implements RequestRepository {
 						result.getLong("R_ID"),
 						new Employee(result.getLong("E_ID")),
 						result.getString("R_BODY"),
-						new Status(result.getLong("S_ID"), "")
+						new Status(result.getLong("S_ID"))
 						));
 			}
-			//Attempting to label Status name for each request
-			for (Request request: requests) {
-				if (request.getStatus().getStatusId() == 3) {
-					request.getStatus().setStatusName("DENIED");
-				} else if (request.getStatus().getStatusId() == 2) {
-					request.getStatus().setStatusName("APPROVED");
-				} else {
-					request.getStatus().setStatusName("PENDING");
-				}
-			}
+//			//Attempting to label Status name for each request
+//			for (Request request: requests) {
+//				if (request.getStatus().getStatusId() == 3) {
+//					request.getStatus().setStatusName("DENIED");
+//				} else if (request.getStatus().getStatusId() == 2) {
+//					request.getStatus().setStatusName("APPROVED");
+//				} else {
+//					request.getStatus().setStatusName("PENDING");
+//				}
+//			}
 			return requests;
 		} catch (SQLException e) {
 			LOGGER.error("Could not find all requests.", e);
