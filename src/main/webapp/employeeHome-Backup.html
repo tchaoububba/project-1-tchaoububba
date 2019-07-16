@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Home</title>
+    <!-- This applies the style from our CSS file into this HTML page. -->
+    <link rel="stylesheet" type="text/css" href="CSS/horizontalTopButtons.css">
+    <script>
+        window.onload=function(){
+        viewProfile();
+        }
+        function viewProfile(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "giveLoggedEmployee.do",true);
+            xmlhttp.onreadystatechange=function() {
+                if(xmlhttp.readyState == 4 && xmlhttp.responseText) {
+                    let data = JSON.parse(xmlhttp.responseText);
+                    console.log(xmlhttp.responseText);
+                    var text = "";
+                    if (data != null) {
+                        text += "Welcome, "+data.firstName+"!";
+                        document.getElementById("demo").innerHTML = text;
+                    }
+                }
+            }
+            xmlhttp.send();
+        }
+    </script>
+</head>
+
+<body>
+    <div style="position: relative; height: 80px; top: 5px; left: 2px;">
+        <img src="Images/Revature_logo.png" alt="Revature logo"/>
+    </div>
+
+    <div id="menu" style="position: absolute; top: 30px; left: 150px;">
+        <ul type="none">
+            <li><a href="request.html" >Reimbursement Requests</a></li>
+            <li><a href="profile.html" >Profile Information</a></li>
+        
+        <form method="post" action="logout.do" class="inline">
+            <input type="hidden" name="getRequestHiddenForm" value="extra_submit_value">
+            <button type="submit" name="submit_param" value="submit_value" class="link-button" style="font-size : 16px;">
+                Logout
+            </button>
+        </form>
+        </ul>
+    </div>
+
+    <h1 id="demo">Welcome!</h1>
+    <h2>Please choose where you would like to go from the options above</h2>
+</body>
+</html>
