@@ -44,7 +44,7 @@ public class LoginController {
 		Employee employee = service.login(new Employee(request.getParameter("username"), request.getParameter("password")));
 		
 		if (employee == null) {
-//			Eventually, we'll plan to return a something that can update a <p></p> field in the original login.html page.
+//			Eventually, we'll plan to return something that can update a <p></p> field in the original login.html page.
 			LOGGER.info("AUTHENTICATION FAILED");
 			return "incorrectLogin.html";
 		}
@@ -66,18 +66,14 @@ public class LoginController {
 //		request.getSession().setAttribute("loggedCustomer", null);
 		
 		request.getSession().invalidate();
-//		We'll send a URI that sends to a different version of the login.html page.
-//		It will be named 'loggedOutLogin.html' and it will have the message
-//		"Logout was successful!"
 //		Eventually, we'll plan to return something that can update a <p></p> field in the original login.html page.
-		LOGGER.trace("We need some kind of 'loggedOutLogin.html' for this");
-		return "login.html";
+		return "loggedOutLogin.html";
 	}
 	
 	public static String viewHome(HttpServletRequest request) {
 		if (request.getSession().getAttribute("loggedEmployee") == null) {
 			LOGGER.trace("There is no longer a loggedEmployee storeda. We need to implement a way of telling the client he was logged out.");
-			return "login.html";
+			return "inactivityLogin.html";
 		}
 		return service.viewHome((Employee)request.getSession().getAttribute("loggedEmployee"));
 	}
