@@ -10,7 +10,7 @@ import com.revature.model.Status;
 import com.revature.service.Service;
 
 /**
- * I think I need to use the request parameters to set up an employee object to pass into the service package.
+ * Uses the request parameters to set up an employee object to pass into the service package.
  * @author tchao
  *
  */
@@ -97,7 +97,6 @@ public final class EmployeeController implements ModelController {
 		return "profile.html";
 	}
 
-//	I may have to remember to add options to html page for Manager to view his own requests or those of the selected ID.
 	@Override
 	public Object getRequests(HttpServletRequest request) {
 		if (request.getSession().getAttribute("loggedEmployee") == null) {

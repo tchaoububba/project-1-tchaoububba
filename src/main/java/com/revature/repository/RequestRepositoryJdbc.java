@@ -97,7 +97,7 @@ public class RequestRepositoryJdbc implements RequestRepository {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM request WHERE E_ID = ?";
+			String sql = "SELECT * FROM request WHERE E_ID = ? ORDER BY R_ID";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setLong(++parameterIndex, employeeId);
@@ -114,16 +114,7 @@ public class RequestRepositoryJdbc implements RequestRepository {
 						new Status(result.getLong("S_ID"))
 						));
 			}
-//			//Attempting to label Status name for each request
-//			for (Request request: requests) {
-//				if (request.getStatus().getStatusId() == 3) {
-//					request.getStatus().setStatusName("DENIED");
-//				} else if (request.getStatus().getStatusId() == 2) {
-//					request.getStatus().setStatusName("APPROVED");
-//				} else {
-//					request.getStatus().setStatusName("PENDING");
-//				}
-//			}
+
 			LOGGER.trace("Requests list being sent from repository: " + requests);
 			return requests;
 		} catch (SQLException e) {
@@ -137,7 +128,7 @@ public class RequestRepositoryJdbc implements RequestRepository {
 		LOGGER.trace("Entering finding all requests");
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM request";
+			String sql = "SELECT * FROM request ORDER BY R_ID";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
@@ -153,16 +144,7 @@ public class RequestRepositoryJdbc implements RequestRepository {
 						new Status(result.getLong("S_ID"))
 						));
 			}
-//			//Attempting to label Status name for each request
-//			for (Request request: requests) {
-//				if (request.getStatus().getStatusId() == 3) {
-//					request.getStatus().setStatusName("DENIED");
-//				} else if (request.getStatus().getStatusId() == 2) {
-//					request.getStatus().setStatusName("APPROVED");
-//				} else {
-//					request.getStatus().setStatusName("PENDING");
-//				}
-//			}
+
 			return requests;
 		} catch (SQLException e) {
 			LOGGER.error("Could not find all requests.", e);

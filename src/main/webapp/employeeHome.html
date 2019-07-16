@@ -4,6 +4,27 @@
     <title>Employee Home</title>
     <!-- This applies the style from our CSS file into this HTML page. -->
     <link rel="stylesheet" type="text/css" href="CSS/horizontalTopButtons.css">
+    <script>
+        window.onload=function(){
+        viewProfile();
+        }
+        function viewProfile(){
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "giveLoggedEmployee.do",true);
+            xmlhttp.onreadystatechange=function() {
+                if(xmlhttp.readyState == 4 && xmlhttp.responseText) {
+                    let data = JSON.parse(xmlhttp.responseText);
+                    console.log(xmlhttp.responseText);
+                    var text = "";
+                    if (data != null) {
+                        text += "Welcome, "+data.firstName+"!";
+                        document.getElementById("demo").innerHTML = text;
+                    }
+                }
+            }
+            xmlhttp.send();
+        }
+    </script>
 </head>
 
 <body>
@@ -25,7 +46,7 @@
         </ul>
     </div>
 
-    <h1>Welcome, [insert loggedEmployee first name here]!</h1>
+    <h1 id="demo">Welcome!</h1>
     <h2>Please choose where you would like to go from the options above</h2>
 </body>
 </html>

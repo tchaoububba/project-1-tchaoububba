@@ -28,28 +28,13 @@ public final class Service {
 	}
 
 	/**
-	 * We're going to take the entered username and password parameters, passed in
-	 * through the Employee object, and then return some kind of validation that the
-	 * login was successful or not. I'm currently undecided between passing back a
-	 * boolean and an Employee object (null if unsuccessful).
+	 * Takes the entered username and password parameters, passed in
+	 * through the Employee object, and returns an Employee object if the
+	 * login is successful or null if it's not.
 	 * 
 	 * @param employee
 	 */
 	public Employee login(Employee employee) {
-////		Check if user is already logged in
-//		if (employee.isLoginStatus()) {
-//			System.out.println(
-//					"You are already logged in.  Please logout if you are attempting to login as someone else.");
-//		} else {
-
-//		System.out.println("Please enter your username.");
-//		String username = scanner.nextLine();
-//		System.out.println("Please enter your password.");
-//		String password = scanner.nextLine();
-//		employee.setUsername(username);
-//		employee.setPassword(password);
-////		Insert scanned username + password into ConnectionDriver info.
-
 //		Code to log in here
 		String username = employee.getUsername();
 		String password = employee.getPassword();
@@ -65,19 +50,10 @@ public final class Service {
 		}
 		LOGGER.trace("Employee not found.");
 		return null;
-//		if (employee.isLoginStatus()) {
-//			System.out.println("Welcome " + employee.getUsername() + "!");
-//		} else {
-//			try {
-//				throw new WrongUsernameOrPasswordException();
-//			} catch (WrongUsernameOrPasswordException e) {
-//				System.out.println("Wrong username and/or password was given. Please try again.");
-//			}
-//		}
 	}
 
 	/**
-	 * We'll respond with the string that sends the client to the right URI for their home.
+	 * Responds with the string that sends the client to the right home URI for the client's title.
 	 * @param employee
 	 * @return
 	 */
@@ -88,28 +64,15 @@ public final class Service {
 		return "employeeHome.html";
 	}
 
-	// This should probably go in a servlet that will end the current session and
-	// bring client to home
+	// The logout method that ends the current session is actually in the servlet
 	public boolean logout(Employee employee) {
-//		Code to log out here
-//		if (employee.isLoginStatus()) {
-//			employee.setLoginStatus(false);
-//			System.out.println("You have successfully logged out!");
-//		} else {
-//			System.out.println("You are not logged in.");
-//		}
 		return false;
 	}
 
 	/**
-	 * This method will only be accessible if the user is logged in (handled up the
-	 * app chain in a servlet probably). We're going to take the passed in Request
-	 * object and pass it straight to the create method in the RequestRepository
-	 * object. Then we'll return some kind of validation that the submission was
-	 * successful or not. I'm currently undecided between passing back a boolean and
-	 * a Request object with a 'Pending' status ID (null if unsuccessful). I may
-	 * have to take in an Employee object as well, but not sure. I may be able to
-	 * simply put the Employee object into the Request object further up the chain.
+	 * This method is only accessible if the user is logged in (handled by the Employee Controller).
+	 * Takes the passed-in Request object and passes it to the create method in the RequestRepository.
+	 * Returns boolean validation that the submission was successful or not.
 	 * 
 	 * @param request
 	 */
@@ -126,14 +89,13 @@ public final class Service {
 		return false;
 	}
 
-//	For now, we're going to lump pending requests with resolved ones.
+//	For now, pending requests are viewed alongside resolved ones.
 	/**
-	 * This method will only be accessible if the user is logged in. Thus, the
-	 * passed in object should have the whole Employee object filled out. We'll use
-	 * the filled in ID field to get any requests belonging to that Employee.
-	 * We will give an employee the option to enter this method with his own info only,
-	 * but a manager will have the option to do that and to select a different employee ID.
-	 * With that ID, we'll make a new Employee object to pass into here.
+	 * This method is only accessible if the user is logged in (handled by the Employee Controller).
+	 * The passed in Employee object provides and ID field to get any requests belonging to that employee.
+	 * An employee has the option to enter this method with his own info only.
+	 * A manager has the option to view his own requests or to view those from a different employee ID.
+	 * With that chosen ID, a new Employee object is passed into this method.
 	 * 
 	 * @param employee
 	 */
@@ -152,27 +114,25 @@ public final class Service {
 		return desiredRequests;
 	}
 	
-//	For now, pending and resolved requests are lumped together, but this functionality will change when the project nears completion.
+//	For now, pending requests are viewed alongside resolved ones.
 	/**
-	 * This method will only be accessible to managers.
+	 * This method is only accessible to managers.
 	 * @param employee
 	 * @return
 	 */
 	public List<Request> managerViewRequest(Employee employee) {
 		RequestRepositoryJdbc repository = new RequestRepositoryJdbc();
 		List<Request> requests = new ArrayList<>();
-		LOGGER.trace(
-				"Calling all requests.");
+		LOGGER.trace("Calling all requests.");
 		requests = repository.findAll();
 		return requests;
 	}
 	
 	/**
-	 * This method will be accessible to managers only and is how they will approve/deny requests.
-	 * Up the application pipeline, we'll figure out how to change only the request status ID
-	 * (or we'll come back here and update the Service class).  Then we'll pass in a request object with that changed status
-	 * and use that object to update the database entry for that request.
-	 * We need to make sure to preserve the R_ID of the original request.
+	 * This method is accessible to managers only and is how they approve/deny requests.
+	 * A request object with the changed status is passed in.
+	 * That object is used to update the database entry for that request.
+	 * The R_ID of the original request is preserved.
 	 * @param request
 	 * @return
 	 */
@@ -183,25 +143,19 @@ public final class Service {
 	}
 
 	/**
-	 * Just as before, this method is only accessible if user is logged in.
+	 * This method is only accessible if the user is logged in.
 	 * @param employee
 	 */
 	public Employee viewInfo(Employee employee) {
 		LOGGER.trace("Viewing employee info with parameter employee ID: " + employee.getEmployeeId());
 		EmployeeRepositoryJdbc repository = new EmployeeRepositoryJdbc();
 		return repository.findByEmployeeId(employee.getEmployeeId());
-//		try {
-//			JacksonPojoToJson.createEmployeeJsonFile(repository.findByEmployeeId(employee.getEmployeeId()));
-//		} catch (IOException e) {
-//			LOGGER.error("Error trying to create Employee JSON object",e);
-//		}
 	}
 
 	/**
-	 * Up the application pipeline, we'll figure out how to change only the values we want to update
-	 * (or we'll come back here and update the Service class).  Then we'll pass in an employee object with those changed values
-	 * (not the user's actual employee object) and use that object to update the database entry for that user.
-	 * We need to make sure to preserve the E_ID of the original user.
+	 * An employee object with the changed parameters is passed in.
+	 * That object is used to update the database entry for the user, and it is also set in the session as the user's logged employee object.
+	 * The E_ID of the original user is preserved.
 	 * @param employee
 	 */
 	public Employee updateInfo(Employee employee) {
@@ -220,11 +174,6 @@ public final class Service {
 //		List<Employee> employees = new ArrayList<>();
 		LOGGER.trace("Calling all employees.");
 		return repository.findAll();
-//		try {
-//			JacksonPojoToJson.createEmployeeJsonListFile(repository.findAll());
-//		} catch (IOException e) {
-//			LOGGER.error("Error trying to create Employee List text file",e);
-//		}
 	}
 
 	public static void main(String[] args) {

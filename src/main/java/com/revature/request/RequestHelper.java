@@ -9,22 +9,10 @@ import com.revature.controller.LoginController;
 
 public class RequestHelper {
 	private static final Logger LOGGER = Logger.getLogger(RequestHelper.class);
-
-//	public static Object process(HttpServletRequest request) {
-//		switch(request.getRequestURI()) {
-//		case "/FrontController/getAll.do":
-//			return CustomerController.getAllCustomers(request);
-//		case "/FrontController/register.do":
-//			return CustomerController.register(request);
-//		default:
-//			//We should return a 404 view here
-//			return null;
-//		}
-//	}
-//	
 	private RequestHelper() {}
 
 	public static Object process(HttpServletRequest request) {
+//		Login Controller (Static Methods)
 		LOGGER.trace("RequestHelper process method");
 		switch(request.getRequestURI()) {
 		case "/ReimbursementProject/login.do":
@@ -33,10 +21,10 @@ public class RequestHelper {
 			return LoginController.logout(request);
 		case "/ReimbursementProject/home.do":
 			return LoginController.viewHome(request);
-////	"/FrontController/register.do"???
-//		case "/register.do":
-//			return CustomerControllerAlpha.getInstance().register(request);
-//		"/FrontController/getAllEmployees.do"???
+		case "/ReimbursementProject/giveLoggedEmployee.do":
+			return LoginController.giveLoggedEmployee(request);
+
+//		Employee Controller (Single Instance)
 		case "/ReimbursementProject/getEmployee.do":
 			return EmployeeController.getInstance().getEmployee(request);
 		case "/ReimbursementProject/getAllEmployees.do":
@@ -52,12 +40,6 @@ public class RequestHelper {
 		case "/ReimbursementProject/updateRequest.do":
 			return EmployeeController.getInstance().updateRequest(request);
 //		case "/ReimbursementProject/test.do":
-//			try {
-//				JacksonPojoToJson.createEmployeeJsonFile(request);;
-//			} catch (IOException e) {
-//				LOGGER.error(e);
-//			}
-//			return "TestAttempted2.html";
 		default:
 			//We should return a 404 view here
 			return "404.html";

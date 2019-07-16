@@ -81,11 +81,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 						result.getString("PASSWORD"),
 						new Title(result.getLong("T_ID"))
 						);
-//				if (employee.getTitle().getTitleId() == 2) {
-//					employee.getTitle().setTitleName("MANAGER");
-//				} else {
-//					employee.getTitle().setTitleName("EMPLOYEE");
-//				}
+
 				return employee;
 			}
 		} catch (SQLException e) {
@@ -100,23 +96,12 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			int parameterIndex = 0;
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM employee WHERE LAST_NAME = ?";
+			String sql = "SELECT * FROM employee WHERE LAST_NAME = ? ORDER BY E_ID";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(++parameterIndex, lastName);
 			
 			ResultSet result = statement.executeQuery();
-			
-//			if(result.next()) {
-//				return new Employee (
-//						result.getLong("E_ID"),
-//						result.getString("FIRST_NAME"),
-//						result.getString("LAST_NAME"),
-//						result.getString("USERNAME"),
-//						result.getString("PASSWORD"),
-//						new Title(result.getLong("T_ID"), "")
-//						);
-//			}
 			
 			List<Employee> employees = new ArrayList<>();
 			
@@ -130,14 +115,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 						new Title(result.getLong("T_ID"))
 						));
 			}
-//			//Attempting to label Title name for each employee
-//			for (Employee employee: employees) {
-//				if (employee.getTitle().getTitleId() == 2) {
-//					employee.getTitle().setTitleName("MANAGER");
-//				} else {
-//					employee.getTitle().setTitleName("EMPLOYEE");
-//				}
-//			}
+
 			return employees;
 		} catch (SQLException e) {
 			LOGGER.error("Could not find employees.", e);
@@ -150,7 +128,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 		LOGGER.trace("Entering finding all employees");
 		try(Connection connection = ConnectionUtil.getConnection()) {
 			//* could be "AS [DESIRED_NAME]
-			String sql = "SELECT * FROM employee";
+			String sql = "SELECT * FROM employee ORDER BY E_ID";
 			
 			PreparedStatement statement = connection.prepareStatement(sql);
 			
@@ -168,14 +146,7 @@ public class EmployeeRepositoryJdbc implements EmployeeRepository {
 						new Title(result.getLong("T_ID"))
 						));
 			}
-//			//Attempting to label Title name for each employee
-//			for (Employee employee: employees) {
-//				if (employee.getTitle().getTitleId() == 2) {
-//					employee.getTitle().setTitleName("MANAGER");
-//				} else {
-//					employee.getTitle().setTitleName("EMPLOYEE");
-//				}
-//			}
+
 			return employees;
 		} catch (SQLException e) {
 			LOGGER.error("Could not find all employees.", e);
